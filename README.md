@@ -1,2 +1,69 @@
-# TILINGSapps
-This repository includes TILINGSapps.txt, a Maple package, accompanying the article Automatic Enumeration of Tilings by Polyominoes, as well as output (text) files.
+# Automatic Enumeration of Tilings by Polyominoes
+* Based on [this paper](https://arxiv.org/abs/) by [Lucy Martinez](https://marti310.github.io/ "Lucy")
+  
+## Usage    
+* Example using TILINGSapps.txt. Save this file as  TILINGSapps.txt to use it and stay in the same directory. Get into Mape and type:
+
+``` read `TILINGSapps.txt:` ```
+
+* The following will be prompted
+
+```
+                First Written: Jan. 2006: tested for Maple 10
+                   Version of Jan. , 2006:
+
+                This is TILINGS, A Maple package
+accompanying Shalsoh B. Ekhad and Doron Zeilberger's  article: 
+                    "Automatic CounTilings" 
+
+                -------------------------------
+        Version of Sept. 30, 2015, procedure Dimer added
+                -------------------------------
+
+        The most current version is available on WWW at:
+    http://www.math.rutgers.edu/~zeilberg/tokhniot/TILINGS .
+Please report all bugs to: zeilberg at math dot rutgers dot edu .
+
+      For general help, and a list of the MAIN functions,
+ type "ezra();". For specific help type "ezra(procedure_name);" 
+     For a list of the supporting functions type: ezra1();
+   ----------------------------------------------------------
+
+NOTE: The above script is for a Maple package separate from the one below (see note below).
+
+   ----------------------------------------------------------
+
+  This is TILINGSapps.txt, a Maple package, accompanying the article:
+        Automatic Enumeration of Tilings by Polyominoes
+                       by Lucy Martinez.
+        This Maple package, as well as the article, are 
+                        available from:
+                         LINK GOES HERE
+
+NOTE: This package and the accompanying paper are applications of the 2006 paper written by
+    Shalosh B. Ekhad and Doron Zeilberger titled Automatic CounTilings.
+
+      Please report bugs to lucyadrianamartinez@gmail.com 
+
+                 -----------------------------
+
+    For a list of the procedures type Help(), for help with
+        a specific procedure, type Help(procedure_name)
+
+                 -----------------------------
+                 -----------------------------
+
+
+For a list of the supporting procedures type Help1(), for help with
+        a specific procedure, type Help(procedure_name)
+
+                 -----------------------------
+
+
+```
+
+* Inputing `GR1dP(5)`, outputs a list L of length N-1 such that L[x] is the probability that a particle starting at x will eventually reach N
+
+```
+GR1dP(5);
+```
