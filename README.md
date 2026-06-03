@@ -38,7 +38,7 @@ NOTE: The above script is for a Maple package separate from the one below (see n
                        by Lucy Martinez.
         This Maple package, as well as the article, are 
                         available from:
-                         LINK GOES HERE
+            https://github.com/marti310/TILINGSapps
 
 NOTE: This package and the accompanying paper are applications of the 2006 paper written by
     Shalosh B. Ekhad and Doron Zeilberger titled Automatic CounTilings.
@@ -62,8 +62,8 @@ For a list of the supporting procedures type Help1(), for help with
 
 ```
 
-* Inputing `GR1dP(5)`, outputs a list L of length N-1 such that L[x] is the probability that a particle starting at x will eventually reach N
+* Inputing `GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t); `, outputs the generating function from the recent American Mathematical Monthly paper, which is the generating function for the number of tilings of a 2n by 4 rectangle using L-tetrominoes, where only rotations are allowed
 
 ```
-GR1dP(5);
+GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t);
 ```
