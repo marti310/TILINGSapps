@@ -64,7 +64,7 @@ For a list of the supporting procedures type Help1(), for help with
 
 * Inputting `GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t); `, outputs the generating function from the recent American Mathematical Monthly paper, which is the generating function for the number of tilings of a 2n by 4 rectangle using L-tetrominoes, where only rotations are allowed.
 
-* Input:
+Input:
 
 ```
 GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t);
