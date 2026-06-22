@@ -84,4 +84,35 @@ For a list of the supporting procedures type Help1(), for help with
   
   Then, see
     * Input file:
-    * Output file: [here](https://marti310.github.io/TILINGSapps/Paper1.txt)
+    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper1.txt)
+ 
+  * If you want to see a short article containing theorems that, for every free polyomino with r cells (1 <= r <= 4)
+  and every rectangular board of width k (1 <= k <= 4), provide:
+    * The generating function for tilings of a k by n rectangle by all images of the polyomino (rotations and reflections).
+    * The asymptotics for these sequences.
+    * The first 30 terms of the corresponding counting sequences.
+  
+  Then, see
+    * Input file:
+    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper2.txt)
+ 
+  * If you want to see a short article containing theorems that, for all fixed polyominoes with r cells (1 <= r <= 4)
+  and every rectangular board of width k (1 <= k <= 4), provide:
+    * The generating function for tilings of a k by n rectangle by all the fixed polyominoes with exactly r cells.
+    * The asymptotics for these sequences.
+    * The first 30 terms of the corresponding counting sequences.
+  
+  Then, see
+    * Input file:
+    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper3.txt)
+ 
+  * If you want to see a short article containing theorems that, for for all fixed polyominoes with r cells (1 <= r <= 4)
+  and every rectangular board of width k (1 <= k <= 4), provide:
+    * The generating function for tilings of a k by n rectangle by the union of all the fixed polyominoes with up to r cells.
+    * The asymptotics for these sequences.
+    * The first 30 terms of the corresponding counting sequences.
+  
+  Then, see
+    * Input file:
+    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper4.txt)
+
