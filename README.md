@@ -1,6 +1,6 @@
 # Automatic Enumeration of Tilings by Polyominoes
 * Based on [this paper](https://arxiv.org/abs/) by [Lucy Martinez](https://marti310.github.io/ "Lucy")
-  
+
 ## Usage    
 * Example using TILINGSapps.txt. Save this file as  TILINGSapps.txt to use it and stay in the same directory. Get into Mape and type:
 
@@ -62,7 +62,7 @@ For a list of the supporting procedures type Help1(), for help with
 
 ```
 
-* Inputting `GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t); `, outputs the generating function from the recent American Mathematical Monthly paper, which is the generating function for the number of tilings of a 2n by 4 rectangle using L-tetrominoes, where only rotations are allowed.
+* Inputting `GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t); `, outputs the generating function from the recent American Mathematical Monthly paper (found [here][https://arxiv.org/abs/](https://doi.org/10.1080/00029890.2025.2600916), which is the generating function for the number of tilings of a 2n by 4 rectangle using L-tetrominoes, where only rotations are allowed.
 
 Input:
 
