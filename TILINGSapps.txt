@@ -1,0 +1,836 @@
+read `TILINGS.txt`:
+#################################################################
+##TILINGSapps.txt: Save this file as TILINGSapps.txt.           #
+#To use it, stay in the                                         #
+##same directory, get into Maple (by typing: maple <Enter> )    #
+##and then type:  read `TILINGSapps.txt`: <Enter>               #
+##Then follow the instructions given there                      #
+##                                                              #
+##Written by Lucy Martinez, Rutgers University                  #
+#################################################################
+
+
+#Created: May 2026.
+
+print(`----------------------------------------------------------`):
+lprint(` `):
+print(`NOTE: The above script is for a Maple package separate from the one below (see note below).`):
+print(`----------------------------------------------------------`):
+lprint(` `):
+
+print(`This is TILINGSapps.txt, a Maple package, accompanying the article:`):
+print(`Automatic Enumeration of Tilings by Polyominoes`):
+print(`by Lucy Martinez.`):
+print(`This Maple package, as well as the article, are `):
+print(`available from:`):
+print(` https://github.com/marti310/TILINGSapps `):
+print(``):
+print(`NOTE: This package and the accompanying paper are applications of the 2006 paper written by`):
+print(`Shalosh B. Ekhad and Doron Zeilberger titled Automatic CounTilings.`):
+print(``):
+print(`Please report bugs to lucyadrianamartinez@gmail.com `):
+
+print(``):
+print(`-----------------------------`):
+
+lprint(``):
+print(`For a list of the procedures type Help(), for help with`):
+print(`a specific procedure, type Help(procedure_name)`):
+print(`-----------------------------`):
+
+
+print(`-----------------------------`):
+print(``):
+print(`For a list of the supporting procedures type Help1(), for help with`):
+print(`a specific procedure, type Help(procedure_name)`):
+print(`-----------------------------`):
+
+
+print(`-----------------------------`):
+print(``):
+print(`For a list of the Paper procedures type HelpP(), for help with`):
+print(`a specific procedure, type Help(procedure_name)`):
+print(`-----------------------------`):
+
+
+with(combinat):
+
+
+
+Help1:=proc()
+
+if args=NULL then
+ print(`The supporting procedures are: addCell, allSymmetries, canonical, newCells,`):
+ print(`reflect, rotate90, rotate180, rotate270, rotSet, translatePoly`):
+else
+Help(args):
+fi:
+end:
+
+
+HelpP:=proc()
+if args=NULL then
+ print(`The Paper procedures are: Paper1, Paper2, Paper3, Paper4`):
+else
+Help(args):
+fi:
+end:
+
+
+Help:=proc()
+
+if args=NULL then
+print(`The main procedures are: Asy1, Asy2, DisplayPoly, FixedPOLY, GFimage, GFpoly, GFpolyC, GFrot, POLY`):
+
+elif nops([args])=1 and op(1,[args])=addCell then
+print(`addCell(S,c): Adds the cell c to the set of cells S representing a polyomino by making sure that it`):
+print(`reduces to its canonical form. Try:`):
+print(`addCell({[0, 0], [0, 1]}, [0,-1]);`):
+
+
+elif nops([args])=1 and op(1,[args])=allSymmetries then
+print(`allSymmetries(S): Given a set of cells S representing a polyomino, it returns all the symmetries of the polyomino S. Try:`):
+print(`allSymmetries({[0, 0], [0, 1]});`):
+
+
+elif nops([args])=1 and op(1,[args])=Asy1 then
+print(`Asy1(f,t,N): Inputs a rational function f in the variable t and a large positive integer N.`):
+print(`Outputs the tuple [C1,C2] such that the coefficient of t^n in f is asymptotic to C2*C1^n.`):
+print(`Note: This method uses numerical approximation.`):
+print(`For an application: To get the asymptotics for the generating function from the recent American Mathematical Monthly,`):
+print(`which is the generating function for the number of tilings of a 2n by 4 rectangle`):
+print(`using L-tetrominoes, where only rotations are allowed, try:`):
+print(`Asy1(GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t), t, 100);`):
+
+
+elif nops([args])=1 and op(1,[args])=Asy2 then
+print(`Asy2(f,t): Inputs a rational function f in the variable t.`):
+print(`Outputs the tuple [C1,C2] such that the coefficient of t^n in f is asymptotic to C2*C1^n.`):
+print(`Note: This method uses calculus.`):
+print(`For an application: To get the asymptotics for the generating function from the recent American Mathematical Monthly,`):
+print(`which is the generating function for the number of tilings of a 2n by 4 rectangle`):
+print(`using L-tetrominoes, where only rotations are allowed, try:`):
+print(`Asy2(GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t), t);`):
+
+
+elif nops([args])=1 and op(1,[args])=canonical then
+print(`canonical(S): Given a set of cells S representing a polyomino, returns one unique representative among the 8 symmetries`):
+print(`of the polyomino S. Try:`):
+print(`canonical({[0, 1], [0, 2], [0, 3], [1, 2]});`):
+
+
+elif nops([args])=1 and op(1,[args])=DisplayPoly then
+print(`DisplayPoly(P): Inputs a polyomino P represented as lattice points and`):
+print(`returns the polyomino displayed with cells. Try:`):
+print(`DisplayPoly({[0,0],[1,0],[0,1],[0,2]});`):
+
+
+elif nops([args])=1 and op(1,[args])=DisplayPoly2 then
+print(`DisplayPoly2(P): Inputs a polyomino P represented as lattice points and`):
+print(`returns a binary matrix whose 1-entries correspond to cells occupied by P.`):
+print(`The matrix is oriented so that the lattice point (0,0) appears at the`):
+print(`bottom-left corner in Cartesian coordinates. Try:`):
+print(`DisplayPoly2({[0,0],[1,0],[0,1],[0,2]});`):
+
+
+elif nops([args])=1 and op(1,[args])=FixedPOLY then
+print(`FixedPOLY(k): Returns all distinct k-ominoes obtained from the members of POLY(k),`):
+print(`using rotation and reflection, where each square is represented by the tuple [a,b]. Try:`):
+print(`FixedPOLY(3);`):
+
+
+elif nops([args])=1 and op(1,[args])=GFimage then
+print(`GFimage(k,P,t): Inputs a single polyomino P represented by lattice points, finds all its images`):
+print(`under rotation and under reflection, and outputs the generating function, in the variable t, whose coefficients of t^n`):
+print(`is the number of tilings of the rectangular k by n board using the set of images under rotation and reflection of P. Try:`):
+print(`GFimage(4,{[0,0],[0,1],[0,2],[1,1]},t); `):
+
+
+elif nops([args])=1 and op(1,[args])=GFpoly then
+print(`GFpoly(k,r,t): Inputs positive integers k and r, with k>=r, and a variable t, and`):
+print(`outputs the generating function, in the variable t, whose coefficients of t^n`):
+print(`is the number of tilings of the rectangular k by n board using only fixed r-ominoes. Try:`):
+print(`GFpoly(3,3,t); `):
+
+
+elif nops([args])=1 and op(1,[args])=GFpolyC then
+print(`GFpolyC(k,r,t): Inputs positive integers k and r, with k>=r, and a variable t, and`):
+print(`outputs the generating function, in the variable t, whose coefficients of t^n`):
+print(`is the number of tilings of the rectangular k by n board using the set of polyominoes`):
+print(`of order 1, order 2,..., up to order r. Try:`):
+print(`GFpolyC(3,3,t); `):
+
+
+elif nops([args])=1 and op(1,[args])=GFrot then
+print(`GFrot(k,P,t): Inputs a single polyomino P represented by lattice points, finds all its images`):
+print(`under rotation, and outputs the generating function, in the variable t, whose coefficients of t^n`):
+print(`is the number of tilings of the rectangular k by n board using the set of images under rotation of P.`):
+print(`For an application: To recover the generating function from the recent American Mathematical Monthly paper,`):
+print(`which is the generating function for the number of tilings of a 2n by 4 rectangle`):
+print(`using L-tetrominoes, where only rotations are allowed, Try:`):
+print(`GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t); `):
+
+
+elif nops([args])=1 and op(1,[args])=newCells then
+print(`newCells(S): Given a set S representing a polyomino, it adds all the adjacent cells to each cell in S. Try:`):
+print(`newCells({[0, 0], [0, 1], [0, 2], [1, 1]});`):
+
+
+elif nops([args])=1 and op(1,[args])=Paper1 then
+print(`Paper1(R,K,t): Inputs positive integers R and K.`):
+print(`Outputs an article containing theorems that, for every free polyomino`):
+print(`with r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),`):
+print(`provide:`):
+print(`The generating function for tilings of a k by n rectangle by rotations of the polyomino.`):
+print(`The asymptotics for these sequences.`):
+print(`The first 30 terms of the corresponding counting sequences. Try:`):
+print(`Paper1(3,3,t); `):
+
+
+elif nops([args])=1 and op(1,[args])=Paper2 then
+print(`Paper2(R,K,t): Inputs positive integers R and K.`):
+print(`Outputs an article containing theorems that, for every free polyomino`):
+print(`with r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),`):
+print(`provide:`):
+print(`The generating function for tilings of a k by n rectangle by all images of the polyomino (rotations and reflections).`):
+print(`The asymptotics for these sequences.`):
+print(`The first 30 terms of the corresponding counting sequences. Try:`):
+print(`Paper2(4,3,t); `):
+
+
+
+elif nops([args])=1 and op(1,[args])=Paper3 then
+print(`Paper3(R,K,t): Inputs positive integers R and K.`):
+print(`Outputs an article containing theorems that, for all fixed polyominoes`):
+print(`with r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),`):
+print(`provide:`):
+print(`The generating function for tilings of a k by n rectangle by all the fixed polyominoes with exactly r cells.`):
+print(`The asymptotics for these sequences.`):
+print(`The first 30 terms of the corresponding counting sequences. Try:`):
+print(`Paper3(3,3,t);`):
+
+
+elif nops([args])=1 and op(1,[args])=Paper4 then
+print(`Paper4(R,K,t): Inputs positive integers R and K.`):
+print(`Outputs an article containing theorems that, for all fixed polyominoes`):
+print(`with <=r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),`):
+print(`provide:`):
+print(`The generating function for tilings of a k by n rectangle by the union of all the fixed polyominoes with up to r cells.`):
+print(`The asymptotics for these sequences.`):
+print(`The first 30 terms of the corresponding counting sequences. Try:`):
+print(`Paper4(3,3,t);`):
+
+
+elif nops([args])=1 and op(1,[args])=POLY then
+print(`POLY(k): Inputs an integer k and outputs the set of free k-ominoes. Try:`):
+print(`POLY(3);`):
+
+
+elif nops([args])=1 and op(1,[args])=reflect then
+print(`reflect(S): Given a set of cells S representing a polyomino, it reflects every cell in S. Try:`):
+print(`reflect({[0, 0], [0, 1], [0, 2], [1, 1]});`):
+
+
+elif nops([args])=1 and op(1,[args])=rotate90 then
+print(`rotate90(S): Given a set of cells S representing a polyomino, it rotates every cell in S by 90 degrees. Try:`):
+print(`rotate90({[0, 0], [0, 1], [0, 2], [1, 1]});`):
+
+
+elif nops([args])=1 and op(1,[args])=rotate180 then
+print(`rotate180(S): Given a set of cells S representing a polyomino, it rotates every cell in S by 180 degrees. Try:`):
+print(`rotate180({[0, 0], [0, 1], [0, 2], [1, 1]});`):
+
+
+elif nops([args])=1 and op(1,[args])=rotate270 then
+print(`rotate270(S): Given a set of cells S representing a polyomino, it rotates every cell in S by 270 degrees. Try:`):
+print(`rotate270({[0, 0], [0, 1], [0, 2], [1, 1]});`):
+
+
+elif nops([args])=1 and op(1,[args])=rotSet then
+print(`rotSet(P): Inputs a single polyomino P represented by lattice points, and outputs all its images under rotation only. Try:`):
+print(`rotSet({[0,0],[1,0],[0,1],[0,2]});`):
+
+
+elif nops([args])=1 and op(1,[args])=translatePoly then
+print(`translatePoly(S): Given a set S representing a polyomino, it translates every cell in S to the origin (it normalizes the set of lattice points). Try:`):
+print(`translatePoly({[0, 1], [0, 2], [0, 3], [1, 2]});`):
+
+
+else
+print(`There is no Help for`,args):
+fi:
+ 
+end:
+
+
+
+#POLY(k): Inputs an integer k and outputs the set of free k-ominoes.
+POLY:=proc(k) local polys, prevPolys, P, c, newP;
+option remember:
+
+if k=1 then
+ return([{[0,0]}]):
+fi:
+
+prevPolys:=POLY(k-1):
+polys:=[]:
+
+for P in prevPolys do
+ for c in newCells(P) do
+  newP:=addCell(P,c):
+  if not member(newP, polys) then
+   polys:=[op(polys), newP]:
+  fi:
+ od:
+od:
+polys:
+end:
+
+
+#newCells(S): Given a set S representing a polyomino, it adds all the adjacent cells to each cell in S
+newCells:=proc(S) local S1,s:
+S1:={}:
+for s in S do
+ S1:=S1 union {[s[1]-1, s[2]], [s[1]+1, s[2]], [s[1], s[2]-1], [s[1], s[2]+1]}:
+od:
+S1 minus S:
+end:
+
+
+#addCell(S,c): Adds the cell c to the set of cells S representing a polyomino by making sure that it 
+#reduces to its canonical form.
+addCell:=proc(S,c):
+return(canonical(S union {c})):
+end:
+
+
+#canonical(S): Given a set of cells S representing a polyomino, returns one unique representative among the 8 symmetries
+# of the polyomino S
+canonical:=proc(S) local A:
+A:=map(T->sort(convert(T,list)),[op(allSymmetries(S))]):
+convert(sort(A)[1], set):
+end:
+
+
+#allSymmetries(S): Given a set of cells S representing a polyomino, it returns all the symmetries of the polyomino S
+allSymmetries := proc(S) local R0,R1,R2,R3,F:
+R0:=translatePoly(S):
+R1:=translatePoly(rotate90(R0)):
+R2:=translatePoly(rotate180(R0)):
+R3:=translatePoly(rotate270(R0)):
+F:=reflect(R0):
+return({R0,R1,R2,R3,translatePoly(F),translatePoly(rotate90(F)),translatePoly(rotate180(F)),translatePoly(rotate270(F))}):
+end:
+
+
+#rotate90(S): Given a set of cells S representing a polyomino, it rotates every cell cell in S
+#by 90 degrees.
+rotate90:=proc(S) local s:
+{seq([-s[2], s[1]], s in S)}:
+end:
+
+
+#rotate180(S): Given a set of cells S representing a polyomino, it rotates every cell in S
+#by 180 degrees.
+rotate180:=proc(S):
+return(rotate90(rotate90(S))):
+end:
+
+#rotate270(S): Given a set of cells S representing a polyomino, it rotates every cell in S
+#by 270 degrees.
+rotate270:=proc(S):
+return(rotate90(rotate180(S))):
+end:
+
+
+#reflect(S): Given a set of cells S representing a polyomino, it reflects every cell in S
+reflect:=proc(S) local s:
+{seq([-s[1], s[2]], s in S)}:
+end:
+
+
+#translatePoly(S): Given a set S representing a polyomino, it translates every cell in S
+#to the origin (it normalizes the set of lattice points)
+translatePoly := proc(S) local xs, ys, s, mx, my:
+xs:=[seq(s[1], s in S)]:
+ys:=[seq(s[2], s in S)]:
+mx:=min(op(xs)):
+my:=min(op(ys)):
+{seq([s[1]-mx, s[2]-my], s in S)}:
+end:
+
+
+#FixedPOLY(k): Returns all distinct k-ominoes obtained from the members of POLY(k),
+#using rotation and reflection, where each square is represented by the tuple [a,b].
+FixedPOLY:=proc(k) local F,P:
+F:={}:
+for P in POLY(k) do
+ F:=F union allSymmetries(P):
+od:
+F:
+end:
+
+
+#GFpoly(k,r,t): Inputs positive integers k and r, with k>=r, and a variable t, and
+#outputs the generating function, in the variable t, whose coefficients of t^n
+#is the number of tilings of the rectangular k by n board using only fixed r-ominoes
+GFpoly:=proc(k,r,t) local P:
+P:=FixedPOLY(r):
+GFt(k,P,t):
+end:
+
+
+
+#GFpolyC(k,r,t): Inputs positive integers k and r, with k>=r, and a variable t, and
+#outputs the generating function, in the variable t, whose coefficients of t^n
+#is the number of tilings of the rectangular k by n board using the set of polyominoes
+#of order 1, order 2, and up to order r.
+GFpolyC:=proc(k,r,t) local P,r1:
+GFt(k,{seq(op(FixedPOLY(r1)),r1=1..r)},t):
+end:
+
+
+
+#GFrot(k,P,t): Inputs a single polyomino P represented by lattice points, finds all its images
+#under rotation, and outputs the generating function, in the variable t, whose coefficients of t^n
+#is the number of tilings of the rectangular k by n board using the set of images under rotation of P
+GFrot:=proc(k,P,t) local Rot:
+Rot:=rotSet(P):
+GFt(k,Rot,t):
+end:
+
+
+#rotSet(P): Inputs a single polyomino P represented by lattice points, and outputs all its images
+#under rotation only
+rotSet:=proc(P) local R0,R1,R2,R3,Rot:
+R0:=translatePoly(P):
+R1:=translatePoly(rotate90(R0)):
+R2:=translatePoly(rotate180(R0)):
+R3:=translatePoly(rotate270(R0)):
+Rot:={R0,R1,R2,R3}:
+Rot:
+end:
+
+
+#GFimage(k,P,t): Inputs a single polyomino P represented by lattice points, finds all its images 
+#under rotation and under reflection, and outputs the generating function, in the variable t, whose coefficients of t^n
+#is the number of tilings of the rectangular k by n board using the set of images under rotation and reflection of P
+GFimage:=proc(k,P,t) local P1:
+P1:=allSymmetries(P):
+GFt(k,P1,t):
+end:
+
+
+with(plots):
+#DisplayPoly(P): Inputs a polyomino P represented as lattice points and
+#returns the polyomino displayed with cells.
+DisplayPoly:=proc(P) local squares,cell,x,y,squarepoly:
+squares := NULL:
+for cell in P do
+ x:=cell[1]:
+ y:=cell[2]:
+ squarepoly:=[[x, y],[x + 1, y], [x + 1, y + 1], [x, y + 1]]:
+ squares:=squares, polygonplot(squarepoly, color = "red", thickness = 2):
+od:
+display(squares, scaling=constrained, size = [100, 100],axes = none):
+end:
+
+
+
+#DisplayPoly2(P): Inputs a polyomino P represented as lattice points and
+#returns a binary matrix whose 1-entries correspond to cells occupied by P.
+#The matrix is oriented so that the lattice point (0,0) appears at the
+#bottom-left corner in Cartesian coordinates.
+DisplayPoly2:=proc(P) local P1,ma,p,M:
+P1:=translatePoly(P):
+ma:=max(seq(op(p),p in P1))+1:
+M:=Matrix(ma, ma, 0):
+for p in P1 do
+ M[ma-p[2],p[1]+1]:=1:
+od:
+M:
+end:
+
+
+
+#SimplifyGF(F,t): Inputs a rational function F in the variable t and outputs
+#the rational function F by substituting t^g, where g is the gcd of all 
+#exponents appearing in the nonzero terms of the enumerator and denominator of the rational function F
+SimplifyGF:=proc(F,t) local top,bot,ltop,lbot,L,g:
+top:=numer(F) - eval(numer(F), t=0):
+bot:=denom(F) - eval(denom(F), t=0):
+ltop:=ldegree(top, t):
+lbot:=ldegree(bot, t):
+
+if ltop=infinity then
+ g:=lbot:
+ return(subs(t=t^(1/g),F),g):
+else
+ g:=gcd(ltop,lbot):
+ return(subs(t^g=t,F),g):
+fi:
+
+end:
+
+
+#Asy1(f,t,N): Inputs a rational function f in the variable t and a large positive integer N.
+#Outputs the tuple [C1,C2] such that the coefficient of t^n in f is asymptotic to C2*C1^n
+Asy1:=proc(f,t,N) local n,L,f1,f2,C1,C2:
+f1:=SimplifyGF(f,t)[1]:
+f2:=taylor(f1,t=0,N+4):
+L:=[seq(coeff(f2,t,n),n=1..N)]:
+C1:=evalf(L[N]/L[N-1]):
+C2:=evalf(L[N]/C1^N):
+[C1,C2]:
+end:
+
+
+#Asy2(f,t): Inputs a rational function f in the variable t.
+#Outputs the tuple [C1,C2] such that the coefficient of t^n in f is asymptotic to C2*C1^n.
+#Note: This method uses calculus.
+#For an application: To get the asymptotics for the generating function from the recent American Mathematical Monthly,
+#which is the generating function for the number of tilings of a 2n by 4 rectangle
+#using L-tetrominoes, where only rotations are allowed, try:
+#Asy2(GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t), t);`):
+Asy2:=proc(f,t) local f1,sol,P,Q,rec,cha,i,C1,C2:
+f1:=SimplifyGF(f,t)[1]:
+P:=numer(f1):
+Q:=denom(f1):
+sol:=evalf([solve(Q,t)]):
+cha:=sol[1]:
+rec:=abs(cha):
+for i from 2 to nops(sol) do
+ if abs(sol[i])<rec then
+  cha:=sol[i]:
+  rec:=abs(cha):
+ fi:
+od:
+C1:=1/cha:
+C2:=(-1/cha)*subs(t=cha,P)/subs(t=cha,diff(Q,t)):
+[C1,C2]:
+end:
+
+
+#Paper1(R,K,t): Inputs positive integers R and K.
+#Outputs an article containing theorems that, for every free polyomino
+#with r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),
+#provide:
+#The generating function for tilings of a k by n rectangle by rotations of the polyomino.
+#The asymptotics for these sequences.
+#The first 30 terms of the corresponding counting sequences.
+Paper1:=proc(R,K,t) local k,n,r,F,f,f1,f2,i,L,P,p,co,ma,poly,S,t0,Af:
+t0:=time():
+
+print(`Generating functions for the number of ways to tile a rectangular k by n rectangle by rotations of a polyomino`):
+print(``):
+print(`By Lucy Martinez`):
+print(``):
+
+#co is the theorem counter
+co:=0:
+
+for r from 1 to R do
+P:=FixedPOLY(r):
+p:=nops(P):
+
+for i from 1 to p do
+#ma is the height of the polyomino
+ma:=max(seq(op(poly),poly in P[i]))+1:
+
+#Since k is the width of the rectangle then it starts at the height or width 
+#of the polyomino as otherwise there is no possible way to tile it
+for k from ma to K do
+F:=GFrot(k,P[i],t):
+f:=SimplifyGF(F,t):
+f1:=f[1]:
+f2:=f[2]:
+
+if f1<>1 and denom(f1)<>t-1 then
+print(``):
+
+print(`Theorem number`, co+1):
+print(``):
+printf("Let %a be the number of ways to tile a %d by %a rectangular board with all of the rotations of the polyomino %a, where all the rotations of the polyomino are displayed below (via matrices),\n", a[k](n), k, f2*n, P[i]):
+S:=rotSet(P[i]):
+
+print(seq(DisplayPoly2(poly),poly in S)):
+printf(`then\n`):
+print(``):
+print(Sum(a[k](n)*x^n,n=0..infinity)=f1):
+print(``):
+print(`and in Maple notation`):
+print(``):
+lprint(f1):
+print(``):
+
+Af:=Asy2(f1,t):
+print(`The asymptotics is the tuple`):
+print():
+printf("%a\n",Af):
+print():
+printf("such that the coefficient of t^n in the above rational function is asymptotic to C2*C1^n where C1 equals %a\n and C2 equals %a.\n", Af[1], Af[2]):
+print(``):
+
+f1:=taylor(f1,t=0,33):
+L:=[seq(coeff(f1,t,i),i=0..30)]:
+
+print(`The first 31 terms of the sequence, starting at n=0 are `):
+lprint(L):
+
+
+co:=co+1:
+fi:
+od:
+od:
+od:
+
+print(``):
+print(`----------------------`):
+print(``):
+print(`This ends this article that took`, time()-t0, `seconds to generate `):
+print(``):
+end:
+
+
+
+#Paper2(R,K,t): Inputs positive integers R and K.
+#Outputs an article containing theorems that, for every free polyomino
+#with r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),
+#provide:
+#The generating function for tilings of a k by n rectangle by all images of the polyomino (rotations and reflections).
+#The asymptotics for these sequences.
+#The first 30 terms of the corresponding counting sequences.
+Paper2:=proc(R,K,t) local k,n,r,F,f,f1,f2,i,L,P,p,co,ma,poly,S,t0,Af:
+t0:=time():
+
+print(`Generating functions for the number of ways to tile a rectangular k by n rectangle by rotations and reflections of a polyomino`):
+print(``):
+print(`By Lucy Martinez`):
+print(``):
+
+#co is the theorem counter
+co:=0:
+
+for r from 1 to R do
+P:=FixedPOLY(r):
+p:=nops(P):
+
+for i from 1 to p do
+#ma is the height of the polyomino
+ma:=max(seq(op(poly),poly in P[i]))+1:
+
+#Since k is the width of the rectangle then it starts at the height or width 
+#of the polyomino as otherwise there is no possible way to tile it
+for k from ma to K do
+F:=GFimage(k,P[i],t):
+f:=SimplifyGF(F,t):
+f1:=f[1]:
+f2:=f[2]:
+
+if f1<>1 and denom(f1)<>t-1 then
+print(``):
+
+print(`Theorem number`, co+1):
+print(``):
+printf("Let %a be the number of ways to tile a %d by %a rectangular board with all of the rotations and reflections of the polyomino %a, where all the rotations and reflections of the polyomino are displayed below (via matrices),\n", a[k](n), k, f2*n, P[i]):
+S:=allSymmetries(P[i]):
+
+print(seq(DisplayPoly2(poly),poly in S)):
+printf(`then\n`):
+print(``):
+print(Sum(a[k](n)*x^n,n=0..infinity)=f1):
+print(``):
+print(`and in Maple notation`):
+print(``):
+lprint(f1):
+print(``):
+
+Af:=Asy2(f1,t):
+print(`The asymptotics is the tuple`):
+print():
+printf("%a\n",Af):
+print():
+printf("such that the coefficient of t^n in the above rational function is asymptotic to C2*C1^n where C1 equals %a\n and C2 equals %a.\n", Af[1], Af[2]):
+print(``):
+
+f1:=taylor(f1,t=0,33):
+L:=[seq(coeff(f1,t,i),i=0..30)]:
+
+print(`The first 31 terms of the sequence, starting at n=0 are `):
+lprint(L):
+co:=co+1:
+
+fi:
+od:
+od:
+od:
+
+print(``):
+print(`----------------------`):
+print(``):
+print(`This ends this article that took`, time()-t0, `seconds to generate `):
+print(``):
+end:
+
+
+
+
+#Paper3(R,K,t): Inputs positive integers R and K.
+#Outputs an article containing theorems that, for all fixed polyominoes
+#with r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),
+#provide:
+#The generating function for tilings of a k by n rectangle by all the fixed polyominoes with exactly r cells.
+#The asymptotics for these sequences.
+#The first 30 terms of the corresponding counting sequences.
+Paper3:=proc(R,K,t) local k,n,r,F,f,f1,f2,i,L,P,p,co,ma,poly,S,t0,Af:
+t0:=time():
+
+print(`Generating functions for the number of ways to tile a rectangular k by n rectangle by the fixed polyominoes`):
+print(`with a fixed number of cells`):
+print(``):
+print(`By Lucy Martinez`):
+print(``):
+
+#co is the theorem counter
+co:=0:
+
+for r from 1 to R do
+P:=FixedPOLY(r):
+p:=nops(P):
+
+for i from 1 to p do
+#ma is the height of the polyomino
+#need the max for the width/height of the rectangle
+ma:=max(seq(op(poly),poly in P[i]))+1:
+
+#Since k is the width of the rectangle then it starts at the height or width 
+#of the polyomino as otherwise there is no possible way to tile it
+for k from ma to K do
+F:=GFt(k,P,t):
+f:=SimplifyGF(F,t):
+f1:=f[1]:
+f2:=f[2]:
+
+if f1<>1 and denom(f1)<>t-1 then
+print(``):
+
+print(`Theorem number`, co+1):
+print(``):
+printf("Let %a be the number of ways to tile a %d by %a rectangular board with all of the fixed polyominoes, where all the fixed polyominoes are displayed below (via matrices),\n", a[k](n), k, f2*n):
+
+print(seq(DisplayPoly2(poly),poly in P)):
+printf(`then\n`):
+print(``):
+print(Sum(a[k](n)*x^n,n=0..infinity)=f1):
+print(``):
+print(`and in Maple notation`):
+print(``):
+lprint(f1):
+print(``):
+
+Af:=Asy2(f1,t):
+print(`The asymptotics is the tuple`):
+print():
+printf("%a\n",Af):
+print():
+printf("such that the coefficient of t^n in the above rational function is asymptotic to C2*C1^n where C1 equals %a\n and C2 equals %a.\n", Af[1], Af[2]):
+print(``):
+
+f1:=taylor(f1,t=0,33):
+L:=[seq(coeff(f1,t,i),i=0..30)]:
+
+print(`The first 31 terms of the sequence, starting at n=0 are `):
+lprint(L):
+co:=co+1:
+fi:
+od:
+od:
+od:
+
+print(``):
+print(`----------------------`):
+print(``):
+print(`This ends this article that took`, time()-t0, `seconds to generate `):
+print(``):
+end:
+
+
+
+#Paper4(R,K,t): Inputs positive integers R and K.
+#Outputs an article containing theorems that, for all fixed polyominoes
+#with <=r cells (1 <= r <= R) and every rectangular board of width k (1 <= k <= K),
+#provide:
+#The generating function for tilings of a k by n rectangle by the union of all the fixed polyominoes with up to r cells.
+#The asymptotics for these sequences.
+#The first 30 terms of the corresponding counting sequences.
+Paper4:=proc(R,K,t) local k,n,r,r1,F,f,f1,f2,i,L,P,p,co,ma,poly,S,t0,Af:
+t0:=time():
+
+print(`Generating functions for the number of ways to tile a rectangular k by n rectangle by the union of all fixed polyominoes`):
+print(`with 1 cell, 2 cells, and so on`):
+print(``):
+print(`By Lucy Martinez`):
+print(``):
+
+#co is the theorem counter
+co:=0:
+
+for r from 1 to R do
+P:={seq(op(FixedPOLY(r1)),r1=1..r)}:
+p:=nops(P):
+
+for i from 1 to p do
+#ma is the height of the polyomino
+#need the max for the width/height of the rectangle
+ma:=max(seq(op(poly),poly in P[i]))+1:
+
+#Since k is the width of the rectangle then it starts at the height or width 
+#of the polyomino as otherwise there is no possible way to tile it
+for k from ma to K do
+F:=GFt(k,P,t):
+f:=SimplifyGF(F,t):
+f1:=f[1]:
+f2:=f[2]:
+
+if f1<>1 and denom(f1)<>t-1 then
+print(``):
+
+print(`Theorem number`, co+1):
+print(``):
+printf("Let %a be the number of ways to tile a %d by %a rectangular board with the union all of the fixed polyominoes, where all the fixed polyominoes are displayed below (via matrices),\n", a[k](n), k, f2*n):
+
+print(seq(DisplayPoly2(poly),poly in P)):
+printf(`then\n`):
+print(``):
+print(Sum(a[k](n)*x^n,n=0..infinity)=f1):
+print(``):
+print(`and in Maple notation`):
+print(``):
+lprint(f1):
+print(``):
+
+Af:=Asy2(f1,t):
+print(`The asymptotics is the tuple`):
+print():
+printf("%a\n",Af):
+print():
+printf("such that the coefficient of t^n in the above rational function is asymptotic to C2*C1^n where C1 equals %a\n and C2 equals %a.\n", Af[1], Af[2]):
+print(``):
+
+f1:=taylor(f1,t=0,33):
+L:=[seq(coeff(f1,t,i),i=0..30)]:
+
+print(`The first 31 terms of the sequence, starting at n=0 are `):
+lprint(L):
+co:=co+1:
+fi:
+od:
+od:
+od:
+
+print(``):
+print(`----------------------`):
+print(``):
+print(`This ends this article that took`, time()-t0, `seconds to generate `):
+print(``):
+end:
