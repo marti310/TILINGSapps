@@ -4,7 +4,7 @@
 ## Usage    
 * Example using TILINGSapps.txt. Save this file as  TILINGSapps.txt to use it and stay in the same directory. Get into Mape and type:
 
-``` read `TILINGSapps.txt:` ```
+  ``` read `TILINGSapps.txt:` ```
 
 * The following will be prompted
 
@@ -64,14 +64,24 @@ For a list of the supporting procedures type Help1(), for help with
 
 * Inputting `GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t); `, outputs the generating function from the recent American Mathematical Monthly paper (found [here](https://doi.org/10.1080/00029890.2025.2600916)), which is the generating function for the number of tilings of a 2n by 4 rectangle using L-tetrominoes, where only rotations are allowed.
 
-Input:
+  * Input:
 
-```
-GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t);
-```
+    ```text
+    GFrot(4,{[0,0],[1,0],[0,1],[0,2]},t);
+    ```
+  
+  * Output:
 
-Output:
+    ```text
+    -(t^4 - 1)/(t^8 + t^6 - 3*t^4 - t^2 + 1)
+    ```
 
-```
--(t^4 - 1)/(t^8 + t^6 - 3*t^4 - t^2 + 1)
-```
+* If you want to see a short article containing theorems that, for every free polyomino with r cells (1 <= r <= 4)
+  and every rectangular board of width k (1 <= k <= 4), provide:
+    * The generating function for tilings of a k by n rectangle by rotations of the polyomino.
+    * The asymptotics for these sequences.
+    * The first 30 terms of the corresponding counting sequences.
+  
+  Then, see
+    * Input file:
+    * Output file: [here](https://marti310.github.io/TILINGSapps/Paper1.txt)
