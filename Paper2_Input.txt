@@ -1,0 +1,3 @@
+read `TILINGSapps.txt`;
+
+Paper2(4,4,t);
