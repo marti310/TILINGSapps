@@ -113,6 +113,6 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file:
+    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper4_Input.txt)
     * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper4.txt)
 
