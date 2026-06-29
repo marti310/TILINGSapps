@@ -83,7 +83,7 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file:
+    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper1_Input.txt)
     * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper1.txt)
  
 * If you want to see a short article containing theorems that, for every free polyomino with r cells (1 <= r <= 4)
@@ -93,7 +93,7 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file:
+    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper2_Input.txt)
     * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper2.txt)
  
 * If you want to see a short article containing theorems that, for all fixed polyominoes with r cells (1 <= r <= 4)
@@ -103,7 +103,7 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file:
+    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper3_Input.txt)
     * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper3.txt)
  
 * If you want to see a short article containing theorems that, for for all fixed polyominoes with r cells (1 <= r <= 4)
