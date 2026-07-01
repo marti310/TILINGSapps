@@ -1,0 +1,2108 @@
+Generating functions for the number of ways to tile a 
+
+   rectangular k by n rectangle by rotations and reflections of 
+
+   a polyomino
+
+
+
+                        By Lucy Martinez
+
+
+
+                       Theorem number, 1
+
+
+Let a[2](n) be the number of ways to tile a 2 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                         [1  0]  [0  0]
+                         [    ], [    ]
+                         [1  0]  [1  1]
+
+then
+
+
+               infinity                         
+                -----                           
+                 \                              
+                  )             n         1     
+                 /     a[2](n) t  = - ----------
+                -----                  2        
+                n = 0                 t  + t - 1
+
+
+                     and in Maple notation
+
+
+-1/(t^2+t-1)
+
+
+         Moreover , a[2](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 1.618033988749894848204586834365638117720309179805762862135448622705260462818902449707207204189391136
+ and C2 equals .7236067977499789696409173668731276235440618359611525724270897245410520925637804899414414408378782265.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000045 (Fibonacci numbers)
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 
+4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229,
+832040, 1346269]
+
+
+                       Theorem number, 2
+
+
+Let a[3](n) be the number of ways to tile a 3 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                         [1  0]  [0  0]
+                         [    ], [    ]
+                         [1  0]  [1  1]
+
+then
+
+
+              infinity                           
+               -----                             
+                \                                
+                 )             n        t - 1    
+                /     a[3](n) t  = - ------------
+               -----                  2          
+               n = 0                 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t-1)/(t^2-4*t+1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 3.732050807568877293527446341505872366942805253810380628055806979451933016908800037081146186757248580
+ and C2 equals .7886751345948128822545743902509787278238008756350634380093011632419888361514666728468576977928747637.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A001835
+[1, 3, 11, 41, 153, 571, 2131, 7953, 29681, 110771, 413403, 1542841, 5757961, 
+21489003, 80198051, 299303201, 1117014753, 4168755811, 15558008491, 58063278153
+, 216695104121, 808717138331, 3018173449203, 11263976658481, 42037733184721, 
+156886956080403, 585510091136891, 2185153408467161, 8155103542731753, 
+30435260762459851, 113585939507107651]
+
+
+                       Theorem number, 3
+
+
+Let a[4](n) be the number of ways to tile a 4 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                         [1  0]  [0  0]
+                         [    ], [    ]
+                         [1  0]  [1  1]
+
+then
+
+
+         infinity                                     
+          -----                                       
+           \                             2            
+            )             n             t  - 1        
+           /     a[4](n) t  = - ----------------------
+          -----                  4    3      2        
+          n = 0                 t  - t  - 5 t  - t + 1
+
+
+                     and in Maple notation
+
+
+-(t^2-1)/(t^4-t^3-5*t^2-t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.840536194094952533051131066515857237922970723722778469690439203722238835513577252611565376951965394
+ and C2 equals .5274743291666180402186819685811810646287316367165415566470630624059952439063234810241528044183770305.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A005178
+[1, 1, 5, 11, 36, 95, 281, 781, 2245, 6336, 18061, 51205, 145601, 413351, 
+1174500, 3335651, 9475901, 26915305, 76455961, 217172736, 616891945, 1752296281
+, 4977472781, 14138673395, 40161441636, 114079985111, 324048393905, 
+920471087701, 2614631600701, 7426955448000, 21096536145301]
+
+
+                       Theorem number, 4
+
+
+Let a[2](n) be the number of ways to tile a 2 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                         [1  0]  [0  0]
+                         [    ], [    ]
+                         [1  0]  [1  1]
+
+then
+
+
+               infinity                         
+                -----                           
+                 \                              
+                  )             n         1     
+                 /     a[2](n) t  = - ----------
+                -----                  2        
+                n = 0                 t  + t - 1
+
+
+                     and in Maple notation
+
+
+-1/(t^2+t-1)
+
+
+         Moreover , a[2](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 1.618033988749894848204586834365638117720309179805762862135448622705260462818902449707207204189391136
+ and C2 equals .7236067977499789696409173668731276235440618359611525724270897245410520925637804899414414408378782265.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000045 (Fibonacci numbers)
+[1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 
+4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229,
+832040, 1346269]
+
+
+                       Theorem number, 5
+
+
+Let a[3](n) be the number of ways to tile a 3 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                         [1  0]  [0  0]
+                         [    ], [    ]
+                         [1  0]  [1  1]
+
+then
+
+
+              infinity                           
+               -----                             
+                \                                
+                 )             n        t - 1    
+                /     a[3](n) t  = - ------------
+               -----                  2          
+               n = 0                 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t-1)/(t^2-4*t+1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 3.732050807568877293527446341505872366942805253810380628055806979451933016908800037081146186757248580
+ and C2 equals .7886751345948128822545743902509787278238008756350634380093011632419888361514666728468576977928747637.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A001835
+[1, 3, 11, 41, 153, 571, 2131, 7953, 29681, 110771, 413403, 1542841, 5757961, 
+21489003, 80198051, 299303201, 1117014753, 4168755811, 15558008491, 58063278153
+, 216695104121, 808717138331, 3018173449203, 11263976658481, 42037733184721, 
+156886956080403, 585510091136891, 2185153408467161, 8155103542731753, 
+30435260762459851, 113585939507107651]
+
+
+                       Theorem number, 6
+
+
+Let a[4](n) be the number of ways to tile a 4 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                         [1  0]  [0  0]
+                         [    ], [    ]
+                         [1  0]  [1  1]
+
+then
+
+
+         infinity                                     
+          -----                                       
+           \                             2            
+            )             n             t  - 1        
+           /     a[4](n) t  = - ----------------------
+          -----                  4    3      2        
+          n = 0                 t  - t  - 5 t  - t + 1
+
+
+                     and in Maple notation
+
+
+-(t^2-1)/(t^4-t^3-5*t^2-t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.840536194094952533051131066515857237922970723722778469690439203722238835513577252611565376951965394
+ and C2 equals .5274743291666180402186819685811810646287316367165415566470630624059952439063234810241528044183770305.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A005178
+[1, 1, 5, 11, 36, 95, 281, 781, 2245, 6336, 18061, 51205, 145601, 413351, 
+1174500, 3335651, 9475901, 26915305, 76455961, 217172736, 616891945, 1752296281
+, 4977472781, 14138673395, 40161441636, 114079985111, 324048393905, 
+920471087701, 2614631600701, 7426955448000, 21096536145301]
+
+
+                       Theorem number, 7
+
+
+Let a[3](n) be the number of ways to tile a 3 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                      [1  0  0]  [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0], [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0]  [1  1  1]
+
+then
+
+
+               infinity                         
+                -----                           
+                 \                              
+                  )             n         1     
+                 /     a[3](n) t  = - ----------
+                -----                  3        
+                n = 0                 t  + t - 1
+
+
+                     and in Maple notation
+
+
+-1/(t^3+t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 1.465571231876768026656731225219939108025577568472285701643183111249262996685017840478125801194909269
+ and C2 equals .6114919919508125184143170109401950314015948956541011055933904543495623244794212738194482408869957362.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000930 (Narayana's cows sequence)
+[1, 1, 1, 2, 3, 4, 6, 9, 13, 19, 28, 41, 60, 88, 129, 189, 277, 406, 595, 872,
+1278, 1873, 2745, 4023, 5896, 8641, 12664, 18560, 27201, 39865, 58425]
+
+
+                       Theorem number, 8
+
+
+Let a[4](n) be the number of ways to tile a 4 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                      [1  0  0]  [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0], [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0]  [1  1  1]
+
+then
+
+
+           infinity                                  
+            -----                                    
+             \                        2              
+              )             n        t  - 2 t + 1    
+             /     a[4](n) t  = - -------------------
+            -----                  3      2          
+            n = 0                 t  - 3 t  + 5 t - 1
+
+
+                     and in Maple notation
+
+
+-(t^2-2*t+1)/(t^3-3*t^2+5*t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.365230013414096845760806828981666078331164746771265071823787354745502933196084557317633355389556554
+ and C2 equals .6857929727935681024198148587011633785095647207374776433570384687124423411242412869862971350666701697.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A049086
+[1, 3, 13, 57, 249, 1087, 4745, 20713, 90417, 394691, 1722917, 7520929, 
+32830585, 143313055, 625594449, 2730863665, 11920848033, 52037243619, 
+227154537661, 991581805481, 4328482658041, 18894822411423, 82480245888473, 
+360045244866137, 1571680309076689, 6860746056673507, 29948734601003605, 
+130733115144074193, 570680117974033657, 2491149979038949311, 
+10874442656416719777]
+
+
+                       Theorem number, 9
+
+
+Let a[2](n) be the number of ways to tile a 2 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[2](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[2](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 10
+
+
+Let a[3](n) be the number of ways to tile a 3 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[3](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 11
+
+
+Let a[4](n) be the number of ways to tile a 4 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+         infinity                                      
+          -----                                        
+           \                                           
+            )             n             6 t - 1        
+           /     a[4](n) t  = - -----------------------
+          -----                    3       2           
+          n = 0                 4 t  + 22 t  - 10 t + 1
+
+
+                     and in Maple notation
+
+
+-(6*t-1)/(4*t^3+22*t^2-10*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 6.545607708474811520288671856053002333661737933750440769788151449102423081493723354694801122931770173-.3710484134127319974078309803777740421259552381290571974542875984665101016984016907068962428904467285e-97*I
+ and C2 equals .1819993299653297400410901422567831370191307991550404796607815187518510952987694505207361709651703375-.9870996982779535536909324721207924508098726033643607384856295357949698598989509769819457075838005641e-98*I.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A046984
+[1, 4, 18, 88, 468, 2672, 16072, 100064, 636368, 4097984, 26579488, 173093760,
+1129796928, 7383588608, 48287978624, 315921649152, 2067346607360, 
+13530037877760, 88555066819072, 579620448450560, 3793872862974976, 
+24832858496561152, 162544900186359808, 1063950623487352832, 6964186996787367936
+, 45584776650406477824, 298379850080793272320, 1953076666511840739328, 
+12784070856739329490944, 83679502503809625554944, 547733159523783643791360]
+
+
+                       Theorem number, 12
+
+
+Let a[2](n) be the number of ways to tile a 2 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[2](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[2](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 13
+
+
+Let a[3](n) be the number of ways to tile a 3 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[3](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 14
+
+
+Let a[4](n) be the number of ways to tile a 4 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+         infinity                                      
+          -----                                        
+           \                                           
+            )             n             6 t - 1        
+           /     a[4](n) t  = - -----------------------
+          -----                    3       2           
+          n = 0                 4 t  + 22 t  - 10 t + 1
+
+
+                     and in Maple notation
+
+
+-(6*t-1)/(4*t^3+22*t^2-10*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 6.545607708474811520288671856053002333661737933750440769788151449102423081493723354694801122931770173-.3710484134127319974078309803777740421259552381290571974542875984665101016984016907068962428904467285e-97*I
+ and C2 equals .1819993299653297400410901422567831370191307991550404796607815187518510952987694505207361709651703375-.9870996982779535536909324721207924508098726033643607384856295357949698598989509769819457075838005641e-98*I.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A046984
+[1, 4, 18, 88, 468, 2672, 16072, 100064, 636368, 4097984, 26579488, 173093760,
+1129796928, 7383588608, 48287978624, 315921649152, 2067346607360, 
+13530037877760, 88555066819072, 579620448450560, 3793872862974976, 
+24832858496561152, 162544900186359808, 1063950623487352832, 6964186996787367936
+, 45584776650406477824, 298379850080793272320, 1953076666511840739328, 
+12784070856739329490944, 83679502503809625554944, 547733159523783643791360]
+
+
+                       Theorem number, 15
+
+
+Let a[2](n) be the number of ways to tile a 2 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[2](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[2](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 16
+
+
+Let a[3](n) be the number of ways to tile a 3 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[3](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 17
+
+
+Let a[4](n) be the number of ways to tile a 4 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+         infinity                                      
+          -----                                        
+           \                                           
+            )             n             6 t - 1        
+           /     a[4](n) t  = - -----------------------
+          -----                    3       2           
+          n = 0                 4 t  + 22 t  - 10 t + 1
+
+
+                     and in Maple notation
+
+
+-(6*t-1)/(4*t^3+22*t^2-10*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 6.545607708474811520288671856053002333661737933750440769788151449102423081493723354694801122931770173-.3710484134127319974078309803777740421259552381290571974542875984665101016984016907068962428904467285e-97*I
+ and C2 equals .1819993299653297400410901422567831370191307991550404796607815187518510952987694505207361709651703375-.9870996982779535536909324721207924508098726033643607384856295357949698598989509769819457075838005641e-98*I.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A046984
+[1, 4, 18, 88, 468, 2672, 16072, 100064, 636368, 4097984, 26579488, 173093760,
+1129796928, 7383588608, 48287978624, 315921649152, 2067346607360, 
+13530037877760, 88555066819072, 579620448450560, 3793872862974976, 
+24832858496561152, 162544900186359808, 1063950623487352832, 6964186996787367936
+, 45584776650406477824, 298379850080793272320, 1953076666511840739328, 
+12784070856739329490944, 83679502503809625554944, 547733159523783643791360]
+
+
+                       Theorem number, 18
+
+
+Let a[3](n) be the number of ways to tile a 3 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [2, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                      [1  0  0]  [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0], [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0]  [1  1  1]
+
+then
+
+
+               infinity                         
+                -----                           
+                 \                              
+                  )             n         1     
+                 /     a[3](n) t  = - ----------
+                -----                  3        
+                n = 0                 t  + t - 1
+
+
+                     and in Maple notation
+
+
+-1/(t^3+t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 1.465571231876768026656731225219939108025577568472285701643183111249262996685017840478125801194909269
+ and C2 equals .6114919919508125184143170109401950314015948956541011055933904543495623244794212738194482408869957362.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000930 (Narayana's cows sequence)
+[1, 1, 1, 2, 3, 4, 6, 9, 13, 19, 28, 41, 60, 88, 129, 189, 277, 406, 595, 872,
+1278, 1873, 2745, 4023, 5896, 8641, 12664, 18560, 27201, 39865, 58425]
+
+
+                       Theorem number, 19
+
+
+Let a[4](n) be the number of ways to tile a 4 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [2, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                      [1  0  0]  [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0], [0  0  0]
+                      [       ]  [       ]
+                      [1  0  0]  [1  1  1]
+
+then
+
+
+           infinity                                  
+            -----                                    
+             \                        2              
+              )             n        t  - 2 t + 1    
+             /     a[4](n) t  = - -------------------
+            -----                  3      2          
+            n = 0                 t  - 3 t  + 5 t - 1
+
+
+                     and in Maple notation
+
+
+-(t^2-2*t+1)/(t^3-3*t^2+5*t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.365230013414096845760806828981666078331164746771265071823787354745502933196084557317633355389556554
+ and C2 equals .6857929727935681024198148587011633785095647207374776433570384687124423411242412869862971350666701697.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A049086
+[1, 3, 13, 57, 249, 1087, 4745, 20713, 90417, 394691, 1722917, 7520929, 
+32830585, 143313055, 625594449, 2730863665, 11920848033, 52037243619, 
+227154537661, 991581805481, 4328482658041, 18894822411423, 82480245888473, 
+360045244866137, 1571680309076689, 6860746056673507, 29948734601003605, 
+130733115144074193, 570680117974033657, 2491149979038949311, 
+10874442656416719777]
+
+
+                       Theorem number, 20
+
+
+Let a[2](n) be the number of ways to tile a 2 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 1], [1, 0], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[2](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[2](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 21
+
+
+Let a[3](n) be the number of ways to tile a 3 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 1], [1, 0], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+                 infinity                      
+                  -----                        
+                   \                           
+                    )             n        1   
+                   /     a[3](n) t  = - -------
+                  -----                 2 t - 1
+                  n = 0                        
+
+
+                     and in Maple notation
+
+
+-1/(2*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 2.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals 1.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A000079 (Powers of 2)
+[1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768, 
+65536, 131072, 262144, 524288, 1048576, 2097152, 4194304, 8388608, 16777216, 
+33554432, 67108864, 134217728, 268435456, 536870912, 1073741824]
+
+
+                       Theorem number, 22
+
+
+Let a[4](n) be the number of ways to tile a 4 by 3*n rectangular board with all of the rotations and reflections of the polyomino {[0, 1], [1, 0], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                 [1  0]  [1  1]  [0  1]  [1  1]
+                 [    ], [    ], [    ], [    ]
+                 [1  1]  [1  0]  [1  1]  [0  1]
+
+then
+
+
+         infinity                                      
+          -----                                        
+           \                                           
+            )             n             6 t - 1        
+           /     a[4](n) t  = - -----------------------
+          -----                    3       2           
+          n = 0                 4 t  + 22 t  - 10 t + 1
+
+
+                     and in Maple notation
+
+
+-(6*t-1)/(4*t^3+22*t^2-10*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 6.545607708474811520288671856053002333661737933750440769788151449102423081493723354694801122931770173-.3710484134127319974078309803777740421259552381290571974542875984665101016984016907068962428904467285e-97*I
+ and C2 equals .1819993299653297400410901422567831370191307991550404796607815187518510952987694505207361709651703375-.9870996982779535536909324721207924508098726033643607384856295357949698598989509769819457075838005641e-98*I.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A046984
+[1, 4, 18, 88, 468, 2672, 16072, 100064, 636368, 4097984, 26579488, 173093760,
+1129796928, 7383588608, 48287978624, 315921649152, 2067346607360, 
+13530037877760, 88555066819072, 579620448450560, 3793872862974976, 
+24832858496561152, 162544900186359808, 1063950623487352832, 6964186996787367936
+, 45584776650406477824, 298379850080793272320, 1953076666511840739328, 
+12784070856739329490944, 83679502503809625554944, 547733159523783643791360]
+
+
+                       Theorem number, 23
+
+
+Let a[4](n) be the number of ways to tile a 4 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2], [0, 3]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                   [1  0  0  0]  [0  0  0  0]
+                   [          ]  [          ]
+                   [1  0  0  0]  [0  0  0  0]
+                   [          ], [          ]
+                   [1  0  0  0]  [0  0  0  0]
+                   [          ]  [          ]
+                   [1  0  0  0]  [1  1  1  1]
+
+then
+
+
+               infinity                         
+                -----                           
+                 \                              
+                  )             n         1     
+                 /     a[4](n) t  = - ----------
+                -----                  4        
+                n = 0                 t  + t - 1
+
+
+                     and in Maple notation
+
+
+-1/(t^4+t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 1.380277569097614115673301691822731877816626701558763025411771331211249574118641526187864568249035509
+ and C2 equals .5474879786194024843102562410306633810023074281466552942141697852273087225572907769914067577057920553.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A003269
+[1, 1, 1, 1, 2, 3, 4, 5, 7, 10, 14, 19, 26, 36, 50, 69, 95, 131, 181, 250, 345,
+476, 657, 907, 1252, 1728, 2385, 3292, 4544, 6272, 8657]
+
+
+                       Theorem number, 24
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 25
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2], [1, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                       Theorem number, 26
+
+
+Let a[4](n) be the number of ways to tile a 4 by 4*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2], [1, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+           [1  0  0]  [0  0  0]  [0  1  0]  [0  0  0]
+           [       ]  [       ]  [       ]  [       ]
+           [1  1  0], [0  1  0], [1  1  0], [1  1  1]
+           [       ]  [       ]  [       ]  [       ]
+           [1  0  0]  [1  1  1]  [0  1  0]  [0  1  0]
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n    t - 1 
+                    /     a[4](n) t  = -------
+                   -----               3 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(t-1)/(3*t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 3.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A008776
+[1, 2, 6, 18, 54, 162, 486, 1458, 4374, 13122, 39366, 118098, 354294, 1062882,
+3188646, 9565938, 28697814, 86093442, 258280326, 774840978, 2324522934, 
+6973568802, 20920706406, 62762119218, 188286357654, 564859072962, 1694577218886
+, 5083731656658, 15251194969974, 45753584909922, 137260754729766]
+
+
+                       Theorem number, 27
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2], [1, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 28
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [0, 2], [1, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                       Theorem number, 29
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 0], [2, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 30
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 0], [2, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                       Theorem number, 31
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 1], [2, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 32
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [0, 1], [1, 1], [2, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                       Theorem number, 33
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [1, 1], [1, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 34
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [1, 1], [1, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                       Theorem number, 35
+
+
+Let a[4](n) be the number of ways to tile a 4 by 4*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [1, 1], [2, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+           [1  0  0]  [0  0  0]  [0  1  0]  [0  0  0]
+           [       ]  [       ]  [       ]  [       ]
+           [1  1  0], [0  1  0], [1  1  0], [1  1  1]
+           [       ]  [       ]  [       ]  [       ]
+           [1  0  0]  [1  1  1]  [0  1  0]  [0  1  0]
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n    t - 1 
+                    /     a[4](n) t  = -------
+                   -----               3 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(t-1)/(3*t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 3.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A008776
+[1, 2, 6, 18, 54, 162, 486, 1458, 4374, 13122, 39366, 118098, 354294, 1062882,
+3188646, 9565938, 28697814, 86093442, 258280326, 774840978, 2324522934, 
+6973568802, 20920706406, 62762119218, 188286357654, 564859072962, 1694577218886
+, 5083731656658, 15251194969974, 45753584909922, 137260754729766]
+
+
+                       Theorem number, 36
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [2, 0], [2, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 37
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [2, 0], [2, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                       Theorem number, 38
+
+
+Let a[4](n) be the number of ways to tile a 4 by n rectangular board with all of the rotations and reflections of the polyomino {[0, 0], [1, 0], [2, 0], [3, 0]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+                   [1  0  0  0]  [0  0  0  0]
+                   [          ]  [          ]
+                   [1  0  0  0]  [0  0  0  0]
+                   [          ], [          ]
+                   [1  0  0  0]  [0  0  0  0]
+                   [          ]  [          ]
+                   [1  0  0  0]  [1  1  1  1]
+
+then
+
+
+               infinity                         
+                -----                           
+                 \                              
+                  )             n         1     
+                 /     a[4](n) t  = - ----------
+                -----                  4        
+                n = 0                 t  + t - 1
+
+
+                     and in Maple notation
+
+
+-1/(t^4+t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 1.380277569097614115673301691822731877816626701558763025411771331211249574118641526187864568249035509
+ and C2 equals .5474879786194024843102562410306633810023074281466552942141697852273087225572907769914067577057920553.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A003269
+[1, 1, 1, 1, 2, 3, 4, 5, 7, 10, 14, 19, 26, 36, 50, 69, 95, 131, 181, 250, 345,
+476, 657, 907, 1252, 1728, 2385, 3292, 4544, 6272, 8657]
+
+
+                       Theorem number, 39
+
+
+Let a[4](n) be the number of ways to tile a 4 by 4*n rectangular board with all of the rotations and reflections of the polyomino {[0, 1], [1, 0], [1, 1], [1, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+           [1  0  0]  [0  0  0]  [0  1  0]  [0  0  0]
+           [       ]  [       ]  [       ]  [       ]
+           [1  1  0], [0  1  0], [1  1  0], [1  1  1]
+           [       ]  [       ]  [       ]  [       ]
+           [1  0  0]  [1  1  1]  [0  1  0]  [0  1  0]
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n    t - 1 
+                    /     a[4](n) t  = -------
+                   -----               3 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(t-1)/(3*t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 3.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A008776
+[1, 2, 6, 18, 54, 162, 486, 1458, 4374, 13122, 39366, 118098, 354294, 1062882,
+3188646, 9565938, 28697814, 86093442, 258280326, 774840978, 2324522934, 
+6973568802, 20920706406, 62762119218, 188286357654, 564859072962, 1694577218886
+, 5083731656658, 15251194969974, 45753584909922, 137260754729766]
+
+
+                       Theorem number, 40
+
+
+Let a[4](n) be the number of ways to tile a 4 by 4*n rectangular board with all of the rotations and reflections of the polyomino {[0, 1], [1, 0], [1, 1], [2, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+           [1  0  0]  [0  0  0]  [0  1  0]  [0  0  0]
+           [       ]  [       ]  [       ]  [       ]
+           [1  1  0], [0  1  0], [1  1  0], [1  1  1]
+           [       ]  [       ]  [       ]  [       ]
+           [1  0  0]  [1  1  1]  [0  1  0]  [0  1  0]
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n    t - 1 
+                    /     a[4](n) t  = -------
+                   -----               3 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(t-1)/(3*t-1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 3.000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666667.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A008776
+[1, 2, 6, 18, 54, 162, 486, 1458, 4374, 13122, 39366, 118098, 354294, 1062882,
+3188646, 9565938, 28697814, 86093442, 258280326, 774840978, 2324522934, 
+6973568802, 20920706406, 62762119218, 188286357654, 564859072962, 1694577218886
+, 5083731656658, 15251194969974, 45753584909922, 137260754729766]
+
+
+                       Theorem number, 41
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 1], [1, 1], [2, 0], [2, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 42
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 1], [1, 1], [2, 0], [2, 1]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                       Theorem number, 43
+
+
+Let a[3](n) be the number of ways to tile a 3 by 8*n rectangular board with all of the rotations and reflections of the polyomino {[0, 2], [1, 0], [1, 1], [1, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+                  infinity                    
+                   -----                      
+                    \                         
+                     )             n   2 t - 1
+                    /     a[3](n) t  = -------
+                   -----               6 t - 1
+                   n = 0                      
+
+
+                     and in Maple notation
+
+
+(2*t-1)/(6*t-1)
+
+
+         Moreover , a[3](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 5.999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
+ and C2 equals .6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666665.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A067411
+####This OEIS sequence does not have a tilings description
+[1, 4, 24, 144, 864, 5184, 31104, 186624, 1119744, 6718464, 40310784, 241864704
+, 1451188224, 8707129344, 52242776064, 313456656384, 1880739938304, 
+11284439629824, 67706637778944, 406239826673664, 2437438960041984, 
+14624633760251904, 87747802561511424, 526486815369068544, 3158920892214411264,
+18953525353286467584, 113721152119718805504, 682326912718312833024, 
+4093961476309876998144, 24563768857859261988864, 147382613147155571933184]
+
+
+                       Theorem number, 44
+
+
+Let a[4](n) be the number of ways to tile a 4 by 2*n rectangular board with all of the rotations and reflections of the polyomino {[0, 2], [1, 0], [1, 1], [1, 2]}, where all the rotations and reflections of the polyomino are displayed below (via matrices),
+
+[1  0  0]  [1  1  0]  [0  0  0]  [0  0  0]  [0  1  0]  [0  0  0]  
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  0  0], [1  0  0], [1  0  0], [1  1  1], [0  1  0], [0  0  1], 
+[       ]  [       ]  [       ]  [       ]  [       ]  [       ]  
+[1  1  0]  [1  0  0]  [1  1  1]  [1  0  0]  [1  1  0]  [1  1  1]  
+
+  [0  0  0]  [1  1  0]
+  [       ]  [       ]
+  [1  1  1], [0  1  0]
+  [       ]  [       ]
+  [0  0  1]  [0  1  0]
+
+
+then
+
+
+infinity                                                       
+ -----                                                         
+  \                                   3                        
+   )             n                   t  + 2 t - 1              
+  /     a[4](n) t  = - ----------------------------------------
+ -----                    6      5      4    3      2          
+ n = 0                 2 t  + 4 t  + 4 t  + t  - 2 t  - 4 t + 1
+
+
+                     and in Maple notation
+
+
+-(t^3+2*t-1)/(2*t^6+4*t^5+4*t^4+t^3-2*t^2-4*t+1)
+
+
+         Moreover , a[4](n),  is asymptotic to C2*C1^n,
+
+
+where C1 equals 4.346016411416492828488450984824846550082712224219603746092576049861836518224648583958435591001630158
+ and C2 equals .5092508696945848287189570967531900985055112738627722263069721743856563255301640363862528036664252926.
+
+
+    The first 31 terms of the sequence, starting at n=0 are 
+
+####The following is OEIS sequence A084480
+[1, 2, 10, 42, 182, 790, 3432, 14914, 64814, 281680, 1224182, 5320310, 23122148
+, 100489226, 436727814, 1898026232, 8248853134, 35849651070, 155803171860, 
+677123141810, 2942788286798, 12789406189672, 55582969192486, 241564496305670, 
+1049843265359828, 4562636060668666, 19829291198986422, 86178424977551224, 
+374532849262462110, 1627725909509239150, 7074123516014989588]
+
+
+                     ----------------------
+
+
+ This ends this article that took, 4.062, seconds to generate 
+
+
+
+
