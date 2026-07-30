@@ -59,6 +59,14 @@ For a list of the supporting procedures type Help1(), for help with
         a specific procedure, type Help(procedure_name)
 
                  -----------------------------
+                 -----------------------------
+
+
+ For a list of the Paper procedures type HelpP(), for help with
+
+        a specific procedure, type Help(procedure_name)
+
+                 -----------------------------
 
 
 ```
