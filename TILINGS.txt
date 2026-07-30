@@ -1,0 +1,1606 @@
+######################################################################
+## TILINGS: Save this file as TILINGS to use it,                     #
+# stay in the                                                        #
+## same directory, get into Maple (by typing: maple <Enter> )        #
+#then type: read TILINGS: <Enter>                                    #
+## Then follow the instructions given there                          #
+##                                                                   #
+## Written by Doron Zeilberger, Rutgers University ,                 #
+##  zeilberg@math.rutgers.edu.                                       # 
+######################################################################
+
+with(combinat):
+
+Digits:=100:
+
+print(`First Written: Jan. 2006: tested for Maple 10  `):
+print(`Version of Jan. , 2006:  `):
+print():
+print(`This is TILINGS, A Maple package`):
+print(`accompanying Shalsoh B. Ekhad and Doron Zeilberger's  article: `):
+print(`"Automatic CounTilings" `):
+print(`-------------------------------`):
+print(`Version of Sept. 30, 2015, procedure Dimer added`):
+print(`-------------------------------`):
+print():
+print(`The most current version is available on WWW at:`):
+print(` http://www.math.rutgers.edu/~zeilberg/tokhniot/TILINGS .`):
+print(`Please report all bugs to: zeilberg at math dot rutgers dot edu .`):
+print():
+print(`For general help, and a list of the MAIN functions,`):
+print(` type "ezra();". For specific help type "ezra(procedure_name);" `):
+print(`For a list of the supporting functions type: ezra1();`):
+print():
+ 
+
+ezra1:=proc()
+if args=NULL then
+
+print(` The supporting procedures are: BuildTree1, Kmn`):
+print(` `):
+print(`For help with a specific procedure, type "ezra(procedure_name);"`):
+else
+ ezra(args):
+fi:
+end:
+
+ezra:=proc()
+if args=NULL then
+
+print(` TILINGS: A Maple package for counting tilings `):
+print(`of rectangles by any set of tiles`):
+print(`The MAIN procedures are: AaveT, AllTilings, AllTilingsNice, Astat, AstatV `):
+print(`BuildTree, BuildTreeH, Dimer, GFt, GFtH , ProveKasteleyn,  ProveKasteleyn1, RandTiling,RandTilingNice,  Rt`):
+print(` Sidra, SidraW, Sipur, SipurArokh `):
+
+elif nargs=1 and args[1]=AllTilings then
+print(`AllTilings(Tiles,k,n0): The set of tilings of the k by n0 board `):
+print(`using the tiles of Tiles, in set-partition form`):
+print(`For example, try: AllTilings([Rt(1,2),Rt(2,1)],2,2);`):
+
+
+elif nargs=1 and args[1]=AllTilingsNice then
+print(`AllTilingsNice(Tiles,k,n0): The set of tilings of the k by n0 board `):
+print(`using the tiles of Tiles, in matrix form.`):
+print(`The numbers do not have any significance, but cells labelled with the`):
+print(`same number belong to the same tile.`):
+print(`The tilings  are listed one by one.`):
+print(`For example, try: AllTilingsNice([Rt(1,2),Rt(2,1)],2,2);`):
+
+elif nargs=1 and args[1]=AaveT then
+print(`AaveT(k,ListOfTiles): Given a postive integer k and a symbol n,`):
+print(` and list of tiles ListOfTiles , `):
+print(` returns the list asymptotic averages (divided by n) of the number of tiles`):
+print(`of tiling a k by n rectangular board by the  tiles in`):
+print(`followed by the average total number of total number of tiles (divided by n)`):
+print(`For example, try: AaveT(2,[Rt(1,2),Rt(2,1)]) `):
+
+
+elif nargs=1 and args[1]=Astat then
+print(`Astat(k,ListOfTiles,n): Given a postive integer k and a symbol n`):
+print(` and given a List of tiles`):
+print(`ListOfTiles`):
+print(`returns: (1) The lists of for the`):
+print(`asymptotics (in n) for pairs [average,variance] for the`):
+print(`r.v. number of tiles of type ListOfTiles[i], in a random tiling by the rectangular tiles`):
+print(`of Tiles (in order), followed by the pair [av,variance] for the`):
+print(`Total number of tiles, followed by the asympto. correlation`):
+print(`matrix for example try:`):
+print(`Astat(4,[Rt(1,2),Rt(2,1)],n):`):
+
+elif nargs=1 and args[1]=AstatV then
+print(`AstatV(k,ListOfTiles,n): Verbose version of Astat (q.v.) `):
+print(`For example, try:`):
+print(`AstatV(4,[Rt(1,2),Rt(2,1)],n):`):
+
+elif nargs=1 and args[1]=AstatVs then
+print(`AstatVs(K,ListOfTiles,n): AstatV(k,ListOfTiles,n) for k from 1 to K `):
+print(`For example, try:`):
+print(`AstatVs(4,[[1,2],[2,1]],n):`):
+
+elif nargs=1 and args[1]=Asy1 then
+print(`Asy1(f,t,n): the Asymptotics of the coeff. of the rational function f`):
+print(`try for example: Asy1(1/(1-t-t^2),t,n);`):
+
+elif nargs=1 and args[1]=BuildTree then
+print(`BuildTree(k,Tiles,t): The tree together with the generating functions in t only.`):
+print(`For example, try: BuildTree(2,[Rt(1,2),Rt(2,1)],t);`):
+
+elif nargs=1 and args[1]=BuildTreeH then
+print(`BuildTreeH(k,Tiles,t,H): The tree together with the generating functions in H.`):
+print(`For example, try: BuildTreeH(2,[Rt(1,2),Rt(2,1)],t,H);`):
+
+elif nargs=1 and args[1]=BuildTree1 then
+print(`BuildTree1(k,Tiles): Builds a tree without the generating functions`):
+print(`For example, try: BuildTree1(2,[Rt(1,2),Rt(2,1)];`):
+
+
+elif nargs=1 and args[1]=Dimer then
+print(`Dimer(n,z): the C-finite representation of the generating function for the dimer problem`):
+print(`in an n by m strip (m general, n specific) with vertical variable z and horiz. variable 1, try:`):
+print(`Dimer(4,z);`):
+
+elif nargs=1 and args[1]=GFt then
+print(`GFt(k,Tiles,t): The generating function, in the variable t, whose coeffs. of`):
+print(`t^n is the number of tilings of the rectangular k by n board `):
+print(`(k-side parallel to the y-axis, and n-side parallel to the x-axis), with the tiles of the list Tiles.`):
+print(`The tiles of Tiles are described as normalized sets of lattice points`):
+print(`Or in case of rectangular tiles, one can use Rt(a,b) (q.v.) for tiles `):
+print(`For example, try: GFt(2,[Rt(1,2),Rt(2,1)],t);`):
+
+elif nargs=1 and args[1]=GFtH then
+print(`GFtH(k,Tiles,t,H): The generating function, in the variable t,`):
+print(`whose coeffs. of`):
+print(`t^n is the weight-enumerator of tilings of the rectangular k by n board with`):
+print(`(k-side parallel to the y-axis, n-side parallel to the x-axis) with the tiles of the list Tiles.`):
+print(`The tiles are described as normalized sets of lattice points.`):
+print(`(For rectangular tiles, use Rt(a,b) for a b by a tile.)`):
+print(`The weight of a tiling is the product of H[tile] over all tiles in the tilings.`):
+print(`For example, try: GFtH(2,[Rt(1,2),Rt(2,1)],t,H);`):
+
+elif nargs=1 and args[1]=Growth1 then
+print(`Growth1(f,t): the growth of the coeff. of the rational function f`):
+print(`try for example: Growth1(1/(1-t-t^2),t);`):
+
+elif nargs=1 and args[1]=Kmn then
+print(`Kmn(m,n,z): Given a positive integer m and an even positive integers n, computes`):
+print(`the Kasteleyn polynomial for tiling`):
+print(`an m by n board by domino tiles computed`):
+print(`according to Kasteleyn's fromula as it appears in`):
+print(`his paper "The statistics of Dimers on a Lattice I...."`):
+print(`Physica 27 (1961) Eq. (13) p. 1215`):
+print(`For example, try: Kmn(3,4,z);`):
+
+
+elif nargs=1 and args[1]=ProveKasteleyn then
+print(`ProveKasteleyn(m): Given an even integer m,`):
+print(`proves Kasteleyn's celebrated formula RIGOROUSLY for any specific even m`):
+print(`but ALL n. For m>=8 it may take a very long time.`):
+print(`For example, try: ProveKasteleyn(4);`):
+
+elif nargs=1 and args[1]=ProveKasteleyn1 then
+print(`ProveKasteleyn1(m): Given an even integer m,`):
+print(`proves the straight-enumeration version (z=1)`):
+print(`of Kasteleyn's celebrated formula RIGOROUSLY for any specific even m`):
+print(`but ALL n. For m>=10 it may take a very long time.`):
+print(`For example, try: ProveKasteleyn(4);`):
+
+elif nargs=1 and args[1]=RandTiling then
+print(`RandTiling(Tiles,k,n0): a (unif.) random tiling of the k by n0 board `);
+print(`using the tiles of Tiles, in set-partition form.`):
+print(`For example, try: RandTiling([Rt(1,2),Rt(2,1)],2,2); .`):
+
+elif nargs=1 and args[1]=RandTilingNice then
+print(`RandTilingNice(Tiles,k,n0): `):
+print(`a (unif.) random tiling of the k by n0 board using the tiles of Tiles.`):
+print(`The tiling is given in matrix form.`):
+print(`For example, try: RandTilingNice([Rt(1,2),Rt(2,1)],2,2); .`):
+
+elif nargs=1 and args[1]=Rt then
+print(`Rt(a,b): Given two positive integers, outputs the rectangular b by a tile`):
+print(`{seq(seq([i,j],i=0..b-1),j=0..a-1)}:`):
+print(`It is here just to save you typing`):
+print(`For example, try: Rt(2,1);`):
+
+
+
+
+
+elif nargs=1 and args[1]=Sidra then
+print(`Sidra(k,Tiles,N): Given a positive integer k, and a list of tiles `):
+print(` Tiles, and a positive integer N `):
+print(`outputs a list whose (n+1)-th entry is`):
+print(`the number of ways of enumerating a k by n rectangle `):
+print(` the k-side vetrical, the n-side horiz.`):
+print(`The tiles are inputed as sets of lattice points.`):
+print(` You can use Rt(a,b) for a b by a rectangular tile `):
+print(` For example, try: Sidra(2,[Rt(1,2),Rt(2,1)],20); `):
+
+elif nargs=1 and args[1]=SidraW then
+print(`SidraW(k,H,Tiles,N): the first N+1 terms in the`):
+print(`weight-enumerating sequence for the number of tilings `):
+print(`of an n by k rectangle using tiles from the list `):
+print(`of Rectangular tiles Tiles.`):
+print(`Here tiles are represented as normalized sets of lattice points.`):
+print(` You can use Rt(a,b) for a b by a rectangle `):
+print(` and the corresponding weight is H[tile]`):
+print(` For example, try: SidraW(2,H,[Rt(1,2),Rt(2,1)],20); `):
+
+elif nargs=1 and args[1]=Sipur then
+print(`Sipur(Tiles,t,K,N,Di1): Tells the story for the`);
+print(`enumeration of rectangular boards of width up to K`):
+print(`using the rectangular tiles Tiles. t is the variable for`):
+print(`the length of the board `):
+print(`N is a positive integer for the lengths of the`):
+print(`desired beginnings for the enumetaring sequences. For example, try: `):
+print(` Di1 is the desired number of digits in the floating point (<=100) `):
+print(`Sipur([Rt(1,2),Rt(2,1)],t,4,10,10);`):
+
+elif nargs=1 and args[1]=SipurArokh then
+print(`SipurArokh(Tiles,t,N,Di1,K1,K2,K3): Tells the long story for the`);
+print(`enumeration of rectangular boards of width between K1 and K2, by increment of K3`):
+print(`using the rectangular tiles Tiles. t is the variable for`):
+print(`the length of the board `):
+print(`N is a positive integer for the lengths of the`):
+print(`desired beginnings for the enumetaring sequences. For example, try: `):
+print(`It also does asymptoic statistics (average nuber of tiles and correlation matrices)`):
+print(` Di1 is the desired number of digits in the floating point (<=100) `):
+print(`SipurArokh([Rt(1,2),Rt(2,1)],t,10,10,2,4,2):`):
+
+
+
+else
+ print(`There is no such thing as`, args):
+
+fi:
+
+
+
+end:
+
+
+
+
+###############Begin Stuff from StatGF
+
+
+Digits:=100:
+#Asy(f,t,n): Given a rational functionf of the variab;e t, finds the
+#asymptotics (in floating point) if the coeff. of t^n
+#For example, try: Asy(1/(1-t-^2),t,n);
+
+Asy:=proc(f,t,n) local gu,gu1,ku,i,alufim,shi,muam,lu1,gu2:
+
+if f=0 then
+ RETURN(0):
+fi:
+
+if normal(subs(t=-t,f)/f)=1 then
+ RETURN(FAIL):
+fi:
+
+gu:=convert(f,parfrac,t,complex):
+
+
+if not type(gu,`+`) then
+ RETURN(Asy1(gu,t,n)):
+fi:
+
+ku:={seq({solve(denom(op(i,gu)),t)}[1],i=1..nops(gu))}:
+
+
+
+alufim:={ku[1]}:
+shi:=abs(ku[1]):
+
+for i from 2 to nops(ku) do
+muam:=abs(ku[i]):
+
+if muam<shi then
+  alufim:={ku[i]}:
+  shi:=muam:
+
+elif muam=shi then
+ alufim:=alufim union {ku[i]}:
+fi:
+od:
+
+gu1:=0:
+
+for i from 1 to nops(gu) do
+lu1:=op(i,gu):
+
+if member({solve(denom(lu1),t)}[1],alufim) then
+
+gu1:=gu1+ lu1:
+fi:
+
+od:
+
+
+if not type(gu1,`+`)  then
+ RETURN(Asy1(gu1,t,n)):
+fi:
+
+gu2:=0:
+
+
+for i from 1 to nops(gu1) do
+
+ gu2:=gu2+Asy1(op(i,gu1),t,n):
+od:
+
+gu2:
+
+end:
+
+
+#Asy1(f,t,n): The asymptotics of a single term
+Asy1:=proc(f1,t,n) local top1,bot1,a,m:
+
+
+top1:=numer(f1):
+bot1:=denom(f1):
+
+
+a:={solve(bot1,t)}[1]:
+
+
+
+if type(bot1,`^`) then
+ m:=op(2,bot1):
+if coeff(op(1,bot1),t,1)<>0 then
+ top1:=top1/coeff(op(1,bot1),t,1):
+else
+ RETURN(FAIL):
+fi:
+
+else
+ m:=1:
+
+if coeff(bot1,t,1)<>0 then
+top1:=top1/coeff(bot1,t,1):
+ else
+ RETURN(FAIL):
+fi:
+
+fi:
+
+
+top1*(-1)^m/a^m*simplify((m+n-1)!/(m-1)!/n!)*(1/a)^n:
+end:
+
+#CheckAsy(f,t): checks the correctness of Asy(f,t,n)
+#For example, try: CheckAsy(1/(1-t),t);
+CheckAsy:=proc(f,t)
+local gu,lu,n,i:
+gu:=taylor(f,t=0,100):
+lu:=Asy(f,t,n):
+
+{seq(coeff(gu,t,i)/subs(n=i,lu),i=80..99)}:
+
+end:
+
+
+#AsyM(F,t,VarList,ExpList,n): Given F, a rational function of t whose
+#coeffs. of t^n are polynomials in the variables of VarList
+#corresponding to r.v.
+#copmutes the asymptotic value of the Expectation of 
+#the product of VarList[i]^ExpList[i]
+#For example, to find the asymptotic second moment
+#of the number of Heads in tossing n coins type:
+#AsyM(1/(1-x*t-y*t^2)),t,[x,y],[2,0],n);
+AsyM:=proc(F,t,VarList,ExpList,n)
+local gu,i,j,lu,ku:
+gu:=F:
+
+
+for i from 1 to nops(VarList) do
+ for j from 1 to ExpList[i] do
+   gu:=VarList[i]*diff(gu,VarList[i]):
+   gu:=normal(gu):
+ od:
+od:
+
+
+gu:=subs({seq(VarList[i]=1,i=1..nops(VarList))},gu):
+
+
+lu:=subs({seq(VarList[i]=1,i=1..nops(VarList))},F):
+
+ku:=normal(Asy(gu,t,n)/Asy(lu,t,n)):
+
+if degree(ku,n)=FAIL then
+ RETURN(FAIL):
+fi:
+
+ku:
+end:
+
+
+#Trim2(f,n,L): trims a floating-point expression to L-digit appx.
+Trim2:=proc(f,n,L)
+local gu,i:
+
+if f=0 then
+RETURN(0):
+fi:
+if f=FAIL then
+ RETURN(FAIL):
+fi:
+
+gu:=0:
+
+for i from 0 to degree(f,n) do
+if abs(coeff(f,n,i))>10^(-L-1) then
+ gu:=gu+evalf(coeff(f,n,i),L)*n^i:
+fi:
+od:
+gu:
+end:
+
+Trim1:=proc(f,n,L) Trim2(coeff(f,I,1),n,L)*I+ Trim2(coeff(f,I,0),n,L): end:
+#Amoment(F,t,VarList,i,k,n): The asymptotic k^th moment about the
+#mean  of the r.v. corresponding to the i^th entry in VarList
+#where F is a rational function in t whose coeffs. of t^n are
+#weight-enumerators according to statistics represented by VarList
+#the asymtotic (in n) variance of the number of horizontal tiles
+#in a domino-tiling of a 4 by n board, type:
+#Amoment(GFtH(4,[Rt(1,2),Rt(2,1)],t,H),t,[H[1,2],H[2,1]],1,2,n):
+Amoment:=proc(F,t,VarList,i,k,n) local gu,j,lu,mu,i1:
+gu:=[seq(AsyM(F,t,VarList,[0$(i-1),j,0$(nops(VarList)-i)],n),j=1..k)]:
+
+mu:=gu[1]:
+
+lu:=(-1)^k*mu^k:
+
+for i1 from 1 to k do
+ lu:=lu+(-1)^(k-i1)*binomial(k,i1)*mu^(k-i1)*gu[i1]:
+od:
+
+Trim1(expand(lu),n,40):
+
+
+end:
+
+
+#Akurtois(F,t,VarList,i,k,n): The asymptotic Kurtosis 
+#of the r.v. corresponding to the i^th entry in VarList
+#where F is a rational function in t whose coeffs. of t^n are
+#weight-enumerators according to statistics represented by VarList
+#For example (assuming that you have CountTilings), to get
+#the asymtotic (in n) Kurtosis of the number of horizontal tiles
+#in a domino-tiling of a 4 by n board, type:
+#AKurtosis(GFtH(4,[Rt(1,2),Rt(2,1)},t,H),t,[H[1,2],H[2,1]],1,n):
+Akurtosis:=proc(F,t,VarList,i,n) local m2,m4:
+m2:=Amoment(F,t,VarList,i,2,n):
+m4:=Amoment(F,t,VarList,i,4,n):
+
+Trim1(normal(coeff(m4,n,degree(m4,n))*n^degree(m4,n)/
+(coeff(m2,n,degree(m2,n))*n^degree(m2,n))^2),n,40):
+
+end:
+
+
+
+
+
+#Aaverage(F,t,VarList,i,n): The asymptotic expectation
+#of the r.v. corresponding to the i^th entry in VarList
+#where F is a rational function in t whose coeffs. of t^n are
+#weight-enumerators according to statistics represented by VarList
+#For example (assuming that you have CountTilings), to get
+#the asymptotic (in n) average of the number of horizontal tiles
+#in a domino-tiling of a 4 by n board, type:
+#Aaverage(GFtH(4,[Rt(1,2),Rt(2,1)],t,H),t,[H[1,2],H[2,1]],1,n):
+Aaverage:=proc(F,t,VarList,i,n) :
+Trim1(AsyM(F,t,VarList,[0$(i-1),1,0$(nops(VarList)-i)],n),n,40):
+end:
+
+
+#Cov(F,VarList,i,j): Given a polynomial F in the variable-list VarList
+#finds the covariance between the r.v. associated with VarList[i] and
+#VarList[j]. For example, try:
+#Cov(x+y^2,[x,y],1,1):
+Cov:=proc(F,VarList,i,j) local x,y,gu,av1,av2,var1,var2,lu,i1:
+x:=VarList[i]: y:=VarList[j]:
+lu:={seq(VarList[i1]=1,i1=1..nops(VarList))}:
+gu:=subs(lu,y*diff(x*diff(F,x),y))/subs(lu,F):
+av1:=subs(lu,x*diff(F,x))/subs(lu,F):
+av2:=subs(lu,y*diff(F,y))/subs(lu,F):
+var1:=expand(subs(lu,x*diff(x*diff(F,x),x))/subs(lu,F)-av1^2):
+var2:=expand(subs(lu,y*diff(y*diff(F,y),y))/subs(lu,F)-av2^2):
+normal((gu-av1*av2)/sqrt(var1*var2)):
+end:
+
+#Acovariance(F,t,VarList,i,j,n): The asymptotic covariance
+#of the r.v. corresponding to the i^th entry in VarList
+#and the j^th entry (1<=i<j<=nops(varList))
+#where F is a rational function in t whose coeffs. of t^n are
+#weight-enumerators according to statistics represented by VarList
+#For example (assuming that you have CountTilings), to get
+#the asymptotic (in n) covariance of the number of horizontal tiles
+#and the number of vertical tiles
+#in a domino-tiling of a 4 by n board, type:
+#Acovariance(GFtH(4,[Rt(1,2),Rt(2,1)],t,H),t,[H[1,2],H[2,1]],1,2,n):
+Acovariance:=proc(F,t,VarList,i,j,n) local gu,gu1,gu2:
+gu:=AsyM(F,t,VarList,[0$(i-1),1,0$(j-i-1),1,0$(nops(VarList)-j)],n):
+
+gu1:=Aaverage(F,t,VarList,i,n) :
+gu2:=Aaverage(F,t,VarList,j,n) :
+Trim1(expand(gu-gu1*gu2),n,40):
+end:
+
+
+#Acorrelation(F,t,VarList,i,j): The asymptotic correlation
+#of the r.v. corresponding to the i^th entry in VarList
+#and the j^th entry (1<=i<j<=nops(varList))
+#where F is a rational function in t whose coeffs. of t^n are
+#weight-enumerators according to statistics represented by VarList
+#For example (assuming that you have CountTilings), to get
+#the asymptotic  correlation of the number of horizontal tiles
+#and the number of vertical tiles
+#in a domino-tiling of a 4 by n board, type:
+#Acorrelation(GFtH(4,[Rt(1,2),Rt(2,1)],t,H),t,[H[1,2],H[2,1]],1,2):
+Acorrelation:=proc(F,t,VarList,i,j) local gu,gu1,gu2,n,guC:
+gu:=Acovariance(F,t,VarList,i,j,n):
+
+
+
+gu1:=Amoment(F,t,VarList,i,2,n):
+gu2:=Amoment(F,t,VarList,j,2,n):
+
+
+
+guC:=coeff(gu,n,degree(gu,n)):
+
+if guC=FAIL then
+ RETURN(FAIL):
+fi:
+if evalf(abs(guC))<10^(-Digits/4) then
+guC:=coeff(gu,n,degree(gu,n)-1):
+
+if degree(gu1,n)+degree(gu2,n)-2*(degree(gu,n)-1)<>0 then
+   RETURN(FAIL):
+fi:
+fi:
+
+
+
+gu1:=sqrt(coeff(gu1,n,degree(gu1,n))):
+gu2:=sqrt(coeff(gu2,n,degree(gu2,n))):
+
+
+if gu1=0 or gu2=0 then
+ RETURN(FAIL):
+fi:
+
+Trim1(evalf(guC/gu1/gu2,20),n,20):
+end:
+
+
+#aCorMatrix(F,t,VarList): The asymptotic correlation Matrix
+#of the random variables corresponding to the r.v. corresponding
+#to those in  VarList
+#where F is a rational function in t whose coeffs. of t^n are
+#weight-enumerators according to statistics represented by VarList
+#For example (assuming that you have CountTilings), to get
+#the asymptotic correlation of the number of horizontal tiles
+#and the number of vertical tiles
+#in a domino-tiling of a 4 by n board, type:
+#aCorMatrirx(GFtH(4,[Rt(1,2),Rt(2,1)],t,H),t,[H[1,2],H[2,1]],n):
+aCorMatrix:=proc(F,t,VarList) local T,i,j:
+for i from 1 to nops(VarList) do
+ for j from i+1 to nops(VarList) do
+  T[i,j]:=Acorrelation(F,t,VarList,i,j):
+ od:
+od:
+[seq(  
+[seq(T[j,i],j=1..i-1),1,seq(T[i,j],j=i+1..nops(VarList))]
+ , i=1..nops(VarList))]:
+
+end:
+
+
+
+
+###############End Stuff from StatGF
+
+
+
+
+
+#NormalT1(S): The normal form of a "tile"
+NormalT1:=proc(S)
+local a,b,i,S1:
+a:=min(seq(S[i][1],i=1..nops(S))):
+
+S1:={}:
+for i from 1 to nops(S) do
+ if S[i][1]=a then
+   S1:=S1 union {S[i]}:
+ fi:
+od:
+
+b:=min(seq(S1[i][2],i=1..nops(S1))):
+
+{seq([S[i][1]-a,S[i][2]-b],i=1..nops(S))}:
+
+end:
+
+
+NormalT:=proc(S) local i:
+{seq(NormalT1(S[i]),i=1..nops(S))}:
+end:
+
+
+#FreeCells(L,N): Given a list of 0-1 lists describing the
+#jagged edge of a board of width nops(L) finds the
+#set of unoccopied cells in its extension to an N board
+#(assumed to be in the positive quadrant of the discrete rectangular lattice)
+#for example, try: FreeCells([[0,1],[1,0]],3);
+FreeCells:=proc(L,N)
+local gu,i,j,k:
+k:=nops(L):
+gu:={seq(seq([i,j],i=0..N-1),j=0..k-1)}:
+
+for i from 1 to nops(L) do
+for j from 1 to nops(L[i]) do
+ if L[i][j]=1 then
+  gu:=gu minus {[j-1,i-1]}:
+ fi:
+od:
+od:
+gu:
+end:
+
+
+
+#FundamentalCell(S): The fundamental cell of the set of lattice points S
+#Try for example: FundamentalCell({[1,0],[0,1],[0,2]});
+FundamentalCell:=proc(S)
+local a,b,i,S1:
+a:=min(seq(S[i][1],i=1..nops(S))):
+
+S1:={}:
+for i from 1 to nops(S) do
+ if S[i][1]=a then
+   S1:=S1 union {S[i]}:
+ fi:
+od:
+
+b:=min(seq(S1[i][2],i=1..nops(S1))):
+
+[a,b]:
+
+end:
+
+ExtentX:=proc(tile) local i:
+max(seq(tile[i][1],i=1..nops(tile)))-
+min(seq(tile[i][1],i=1..nops(tile))):
+end:
+
+Rt:=proc(a,b) local i,j:
+{seq(seq([i,j],i=0..b-1),j=0..a-1)}:
+end:
+
+
+
+#SetToL1(S): Given a set of points with the same
+#y-coordinate 
+#to a list of 0 and 1's of the support
+#For example, try: SetToL1({[0,3],[1,3],[4,3]});
+SetToL1:=proc(S)
+local i,m,y,gu:
+
+if S={} then
+ RETURN([]):
+fi:
+
+if nops({seq(S[i][2],i=1..nops(S))})<>1 then
+ RETURN(FAIL):
+fi:
+
+y:=S[1][2]:
+
+m:=max(seq(S[i][1],i=1..nops(S))):
+
+gu:=[]:
+
+for i from 0 to m do
+ if member([i,y],S) then
+  gu:=[op(gu),0]:
+ else
+  gu:=[op(gu),1]:
+ fi:
+od:
+Chop1(gu):
+end:
+
+#Chop1(resh): chops the trailing zeroes of a list
+Chop1:=proc(resh) local i:
+
+for i from 1 to nops(resh) while resh[nops(resh)-i+1]=0 do od:
+
+[op(1..nops(resh)-i+1,resh)]:
+end:
+
+
+#SetToL(S,k): Given a set of lattice points in 0<=y<=k-1
+#converts it to list notation
+SetToL:=proc(S,k) local gu,T,i,K:
+
+for i from 0 to k-1 do
+ T[i]:={}:
+od:
+
+for i from 1 to nops(S) do
+T[S[i][2]]:=T[S[i][2]] union {S[i]}:
+od:
+
+gu:=[seq(SetToL1(T[i]),i=0..k-1)]:
+
+K:=max(seq(nops(gu[i]),i=1..nops(gu))):
+[seq([op(gu[i]),0$(K-nops(gu[i]))],i=1..nops(gu))]:
+end:
+
+
+
+
+ExtractOnes1:=proc(L) local i:
+
+if member(0,{seq(nops(L[i]),i=1..nops(L))}) then
+  RETURN(FAIL):
+fi:
+
+if {seq(L[i][1],i=1..nops(L))}={1} then
+ RETURN([seq([op(2..nops(L[i]),L[i])],i=1..nops(L))]):
+else
+ RETURN(FAIL):
+fi:
+end:
+
+ExtractOnes:=proc(L) local L1,co:
+L1:=L:
+co:=0:
+while ExtractOnes1(L1)<>FAIL do
+co:=co+1:
+L1:=ExtractOnes1(L1):
+od:
+co,L1:
+end:
+
+
+
+
+#Eq1(L,t,F,H,Tiles): Finds the equation for the set of jagged rectangular
+#boards of width k (say) encoded by the k-list L, and expressed
+#as F[L] in terms of its "children" and the weight enumerator where
+#the weight is t^(length) times the product of H[tile] ranging over all
+#tiles that participate
+#Tiles is the list of tiles (each a set of lattice points)
+#it also returns the set of variables used
+#For example, try:
+#Eq1([[],[]],t,F,H,[ {[0,0],[1,0]},{[0,0],[0,1]} ] );
+Eq1:=proc(L,t,F,H,Tiles) local gu,k,eq,N,fc,tile,lu,i,j,pt,gu1,ku,mu:
+k:=nops(L):
+ if L=[[]$k] then
+  eq:=F[L]-1:
+ else
+  eq:=F[L]:
+ fi:
+
+N:=max(seq(ExtentX(Tiles[i]),i=1..nops(Tiles)))+
+max(seq(nops(L[i]),i=1..nops(L)))+10:
+
+gu:=FreeCells(L,N):
+fc:=FundamentalCell(gu):
+
+
+mu:={}:
+
+for i from 1 to nops(Tiles) do
+tile:=Tiles[i]:
+ for j from 1 to nops(tile) do
+   pt:=tile[j]:
+  
+  lu:={seq([tile[k][1]-pt[1]+fc[1],tile[k][2]-pt[2]+fc[2]],k=1..nops(tile))}:
+ 
+ if lu minus  gu={} then
+  gu1:=gu minus lu:
+  gu1:=SetToL(gu1,k):
+  ku:=ExtractOnes(gu1):
+  eq:=eq-H[tile]*t^ku[1]*F[ku[2]]:
+   mu:= mu union {ku[2]}:
+ fi:
+ 
+ od:
+od:
+
+eq,mu:
+end:
+
+
+
+
+
+
+
+
+#Yeladim(L,Tiles): Finds the children of a jagged board L
+#of width k (say) encoded by the k-list L, For example, try:
+#The children are of the form [L1,tile,pivot,generation_below]
+#hwere L1 is the new jagged board, tile is the ti that is used
+#pivot is the celln the tile coinciding with the Fundamental Cell of L
+#and generation_below is a non-negative integer describing  how many
+#generations below it is (usually 0). For example, try:
+#Yeladim([[],[]],[ Rt(1,2),Rt(2,1) ] );
+Yeladim:=proc(L,Tiles) local gu,k,yel,N,fc,tile,lu,i,j,pt,gu1,ku:
+k:=nops(L):
+
+yel:={}:
+
+N:=max(seq(ExtentX(Tiles[i]),i=1..nops(Tiles)))+
+max(seq(nops(L[i]),i=1..nops(L)))+10:
+
+gu:=FreeCells(L,N):
+fc:=FundamentalCell(gu):
+
+
+
+for i from 1 to nops(Tiles) do
+tile:=Tiles[i]:
+ for j from 1 to nops(tile) do
+   pt:=tile[j]:
+  
+  lu:={seq([tile[k][1]-pt[1]+fc[1],tile[k][2]-pt[2]+fc[2]],k=1..nops(tile))}:
+ 
+ if lu minus  gu={} then
+  gu1:=gu minus lu:
+  gu1:=SetToL(gu1,k):
+  ku:=ExtractOnes(gu1):
+  yel:=yel union {[ku[2],tile,pt,ku[1]]}:
+ fi:
+ 
+ od:
+od:
+
+convert(yel,list):
+end:
+
+
+#IniTree(k,Tiles): the initial partial tree for tilings of a rectangular borad
+#of width k using the tiles from the list Tiles
+#trees are represented as a LIST of the form [parent, SetOfChildrenWithInfo]
+IniTree:=proc(k,Tiles)
+local L,yel:
+L:=[[]$k]:
+yel:=Yeladim(L,Tiles):
+[[L,yel]]:
+end:
+
+
+#NotYet1(ets): Given a partial tree, finds the set of children that are not yet parents
+NotYet1:=proc(ets) local i,j:
+{seq(
+seq(ets[i][2][j][1],j=1..nops(ets[i][2])),
+i=1..nops(ets))}
+minus {seq(ets[i][1],i=1..nops(ets))}:
+end:
+
+#BuildTree1(k,Tiles): Builds a tree
+BuildTree1:=proc(k,Tiles1)
+local T,khadas,Tiles:
+option remember:
+Tiles:=NormalT(Tiles1):
+T:=IniTree(k,Tiles):
+
+
+while NotYet1(T)<>{} do
+ khadas:=NotYet1(T)[1]:
+  T:=[op(T),[khadas, Yeladim(khadas,Tiles)]]:
+od:
+T:
+end:
+
+
+#BuildTreeH(k,Tiles,t,H): The tree together with the generating functions in H
+BuildTreeH:=proc(k,Tiles,t,H)
+local T1,eq,var,L,F,i,j,yel:
+option remember:
+T1:=BuildTree1(k,Tiles):
+
+L:=T1[1][1]:
+yel:=T1[1][2]:
+eq:={F[L]-1-add(F[yel[i][1]]*H[yel[i][2]]*t^yel[i][4],i=1..nops(yel))}:
+
+for j from 2 to nops(T1) do
+L:=T1[j][1]:
+yel:=T1[j][2]:
+eq:=eq union {F[L]-add(F[yel[i][1]]*H[yel[i][2]]*t^yel[i][4],i=1..nops(yel))}:
+od:
+
+var:={seq(F[T1[i][1]],i=1..nops(T1))}:
+
+var:=solve(eq,var):
+
+if var=NULL then
+ RETURN(FAIL):
+fi:
+
+[seq([T1[i][1],T1[i][2] , subs(var,F[T1[i][1]]) ],i=1..nops(T1)) ]
+end:
+
+#BuildTree(k,Tiles,t): The tree together with the generating functions in t only
+BuildTree:=proc(k,Tiles,t)
+local T1,eq,var,L,F,i,j,yel:
+option remember:
+T1:=BuildTree1(k,Tiles):
+
+L:=T1[1][1]:
+yel:=T1[1][2]:
+eq:={F[L]-1-add(F[yel[i][1]]*t^yel[i][4],i=1..nops(yel))}:
+
+for j from 2 to nops(T1) do
+L:=T1[j][1]:
+yel:=T1[j][2]:
+eq:=eq union {F[L]-add(F[yel[i][1]]*t^yel[i][4],i=1..nops(yel))}:
+od:
+
+var:={seq(F[T1[i][1]],i=1..nops(T1))}:
+
+var:=solve(eq,var):
+
+if var=NULL then
+ RETURN(FAIL):
+fi:
+
+
+[seq([T1[i][1],T1[i][2] , subs(var,F[T1[i][1]]) ],i=1..nops(T1)) ]
+
+end:
+
+
+
+#GFt(k,Tiles,t): The generating function, in the variable t, whose coeffs. of
+#t^n is the number of tilings of the rectangular k by n board with
+#(k parallel to y-axis, n parallel to x-axis) with the tiles of the list Tiles
+#where ar tiles are described as normalized sets of lattice points
+#For example, try: GFt(2,[Rt(1,2),Rt(2,1)],t);
+
+GFt:=proc(k,Tiles,t):  BuildTree(k,Tiles,t)[1][3]: end:
+
+#GFtH(k,Tiles,t,H): The generating function, in the variable t, whose coeffs. of
+#t^n is the weight-enumerator of tilings of the rectangular k by n board with
+#(k parallel to y-axis, n parallel to x-axis) with the tiles of the list Tiles
+#where ar tiles are described as normalized sets of lattice points
+#the weight of a tiling is the product of H[tile] over all tiles in the tilings
+#For example, try: GFtH(2,[Rt(1,2),Rt(2,1)],t,H);
+GFtH:=proc(k,Tiles,t,H):  BuildTreeH(k,Tiles,t,H)[1][3]: end:
+
+
+
+#LoadedDie(resh): picks an integer from 1 to nops(resh) according to the loads of the
+#list of positive integers resh:
+LoadedDie:=proc(resh)
+local L,ra,j:
+L:=convert(resh,`+`):
+if L=0 then
+ RETURN(FAIL):
+fi:
+ra:=rand(1..L)():
+
+
+if ra<=resh[1] then
+ RETURN(1):
+fi:
+
+for j from 2 to nops(resh)-1 do
+if ra>convert([op(1..j-1,resh)],`+`) and ra<=convert([op(1..j,resh)],`+`) then
+ RETURN(j):
+fi:
+od:
+nops(resh):
+
+end:
+
+
+#RandTi1(T,t,v,Tiles,k,n0): Given a tree T a vertex v and an integer n
+#outputs a (unif.) random tiling of the k by n rect. board
+#for example, try: RandTi1( T2,t,[[],[]],[Rt(1,2),Rt(2,1)],2,3);
+RandTi1:=proc(T,t,v,Tiles,k,n0) local gu,i,Tab1,yel,gf1,mu,j,mu1,v1,tile1,pivot1,shift1,RandT1,fc,N:
+
+N:=max(seq(ExtentX(Tiles[i]),i=1..nops(Tiles)))+
+max(seq(nops(v[i]),i=1..nops(v)))+10:
+gu:=FreeCells(v,N):
+fc:=FundamentalCell(gu):
+
+
+gu:={seq(T[i][1],i=1..nops(T))}:
+
+for i from 1 to nops(T) do
+Tab1[T[i][1]]:=T[i][3]:
+od:
+
+
+if not member(v,gu) then
+ RETURN(FAIL):
+fi:
+
+if n0=0 then
+if v=[[]$k] then
+ RETURN({}):
+else
+
+ RETURN(FAIL):
+fi:
+fi:
+
+for i from 1 to nops(T) do
+if T[i][1]=v then
+ break:
+fi:
+od:
+yel:=T[i][2]:
+gf1:=T[i][3]:
+
+
+mu:=[]:
+for j from 1 to nops(yel) do
+
+ mu:=[op(mu),
+ coeff(taylor(Tab1[yel[j][1]],t=0,n0+1),t,n0-yel[j][4])]:
+od:
+
+mu1:=coeff(taylor(gf1,t=0, n0+1),t,n0):
+
+if mu1=0 then
+ RETURN(FAIL):
+fi:
+
+if convert(mu,`+`)<>mu1 then
+ print(`Something is wrong`):
+ RETURN(FAIL):
+fi:
+
+j:=LoadedDie(mu):
+
+v1:=yel[j][1]:
+tile1:=yel[j][2]:
+pivot1:=yel[j][3]:
+shift1:=yel[j][4]:
+
+
+RandT1:=RandTi1(T,t,v1,Tiles,k,n0-shift1):
+
+
+RandT1:={seq(
+{seq([RandT1[i][j][1]+shift1,RandT1[i][j][2]],j=1..nops(RandT1[i]))}
+,i=1..nops(RandT1))}:
+
+tile1:={seq([tile1[i][1]-pivot1[1]+fc[1],tile1[i][2]-pivot1[2]+fc[2]],i=1..nops(tile1))}:
+
+
+{op(RandT1),tile1}:
+
+end:
+
+
+
+
+#RandTiling(Tiles,k,n0): a (unif.) random tiling of the k by n0 board 
+#using the tiles of Tiles, in set-partition form
+#For example, try: RandTiling([Rt(1,2),Rt(2,1)],2,2);
+RandTiling:=proc(Tiles,k,n0) local T,t:
+T:=BuildTree(k,Tiles,t):
+RandTi1(T,t,[[]$k],Tiles,k,n0):
+end:
+
+
+#TileToMat(Ti,k0,n0): Given a tiling of the k0 by n0 board as a set partition
+#returns it as a matrix
+TileToMat:=proc(Ti,k0,n0) local M,i,j,vu,T,M1,co:
+if Ti=FAIL then
+ RETURN(FAIL):
+fi:
+M:=matrix(k0,n0):
+
+for i from 1 to nops(Ti) do
+ for j from 1 to nops(Ti[i]) do
+  M[Ti[i][j][2]+1,Ti[i][j][1]+1]:=i:
+ od:
+od:
+
+vu:={}:
+co:=0:
+for j from 1 to n0 do
+for i from 1 to k0 do
+ if not member(M[i,j],vu) then
+   vu:=vu union {M[i,j]}:
+  co:=co+1:
+  T[M[i,j]]:=co:
+ fi:
+od:
+od:
+
+M1:=matrix(k0,n0):
+
+for i from 1 to k0 do
+ for j from 1 to n0 do
+  M1[i,j]:=T[M[i,j]]:
+ od:
+od:
+op(M1):
+end:
+
+
+
+
+#RandTilingNice(Tiles,k,n0): 
+#a (unif.) random tiling of the k by n0 board using the tiles of Tiles
+#in Matrix form
+#For example, try: RandTilingNice([Rt(1,2),Rt(2,1)],2,2);
+RandTilingNice:=proc(Tiles,k,n0) :
+TileToMat(RandTiling(Tiles,k,n0),k,n0):
+end:
+
+
+
+
+
+
+
+
+
+#AllTilings(Tiles,k,n0): The set of tilings of the k by n0 board 
+#using the tiles of Tiles, in set-partition form
+#For example, try: AllTilings([Rt(1,2),Rt(2,1)],2,2);
+AllTilings:=proc(Tiles,k,n0) local T,t:
+T:=BuildTree(k,Tiles,t):
+AllTi1(T,t,[[]$k],Tiles,k,n0):
+end:
+
+
+#AllTilingsNice(Tiles,k,n0): The set of tilings of the k by n0 board 
+#using the tiles of Tiles, in matrix form and listed one-by-one
+#For example, try: AllTilingsNice([Rt(1,2),Rt(2,1)],2,2);
+AllTilingsNice:=proc(Tiles,k,n0) local gu,i:
+gu:=AllTilings(Tiles,k,n0):
+
+print(`There are`, nops(gu), `tilings using the tiles`, Tiles, `of the`, k, ` by `, n0 , ` rectangular board `):
+print(`Here they are: `):
+for i from 1 to nops(gu) do
+
+print(TileToMat(gu[i],k,n0)):
+od:
+end:
+
+
+
+#AllTi1(T,t,v,Tiles,k,n0): Given a tree T a vertex v and an integer n
+#outputs all tilings of the k by n rect. board
+#for example, try: AllTi1( T2,t,[[],[]],[Rt(1,2),Rt(2,1)],2,3);
+AllTi1:=proc(T,t,v,Tiles,k,n0) local gu,i,yel,mu,j,mu1,v1,tile1,pivot1,shift1,fc,N,
+i3,j3,k1,kha:
+
+
+if n0<0 then
+ RETURN({}):
+fi:
+
+if n0=0 then
+if v=[[]$k] then
+ RETURN({{}}):
+else
+
+ RETURN({}):
+fi:
+fi:
+
+N:=max(seq(ExtentX(Tiles[i]),i=1..nops(Tiles)))+
+max(seq(nops(v[i]),i=1..nops(v)))+10:
+gu:=FreeCells(v,N):
+fc:=FundamentalCell(gu):
+
+
+gu:={seq(T[i][1],i=1..nops(T))}:
+
+
+if not member(v,gu) then
+ RETURN(FAIL):
+fi:
+
+
+for i from 1 to nops(T) do
+if T[i][1]=v then
+ break:
+fi:
+od:
+yel:=T[i][2]:
+
+mu:={}:
+
+for j from 1 to nops(yel) do
+
+v1:=yel[j][1]:
+tile1:=yel[j][2]:
+pivot1:=yel[j][3]:
+shift1:=yel[j][4]:
+
+
+mu1:=AllTi1(T,t,v1,Tiles,k,n0-shift1):
+
+tile1:={seq([tile1[i][1]-pivot1[1]+fc[1],tile1[i][2]-pivot1[2]+fc[2]],i=1..nops(tile1))}:
+
+for k1 from 1 to nops(mu1) do
+ kha:=mu1[k1]:
+kha:={seq(
+{seq([kha[i3][j3][1]+shift1,kha[i3][j3][2]],j3=1..nops(kha[i3]))}
+,i3=1..nops(kha))}:
+
+mu:= mu union {{op(kha),tile1}}:
+od:
+
+od:
+mu:
+end:
+
+
+#T2:=BuildTree(2,[Rt(1,2),Rt(2,1)],t):
+
+ez:=proc():print(` NormalT1(S), NormalT(S), Eq1(L,t,F,H,Tiles), FreeCells(L,N), FundamentalCell(S) `):
+print(`Eq1([[],[]],t,F,H,[Rt(1,2),Rt(2,1) ] );`):
+print(`Rt(a,b), SetToL1({[0,3],[1,3],[4,3]}); `):
+print(`SetToL(S,k), Chop1(resh) , ExtractOnes1(L) , Eq(k,t,F,H,Tiles) `):
+print(`Yeladim([[],[]],[ Rt(1,2),Rt(2,1) ] `);
+print(`IniTree(k,Tiles), NotYet1(ets)`):
+print(`BuildTree1(k,Tiles)`):
+print(`BuildTreeH(k,Tiles,t,H), BuildTree(k,Tiles,t) , GFt(k,Tiles,t) `):
+print(`RandTi1( T2,t,[[],[]],[Rt(1,2),Rt(2,1)],2,3);`):
+print(`LoadedDie(resh), RandTi(Tiles,k,n0);`):
+print(`TileToMat(Ti,k0,n0) `):
+print(`RandTiNice(Tiles,k,n0):`): 
+print(`GFtH(k,Tiles,t,H)`):
+print(`AllTilings(Tiles,k,n0), AllTi1(T,t,v,Tiles,k,n0) `):
+print(`AllTilingsNice(Tiles,k,n0)`):
+end:
+
+
+
+
+####Salvaged Stuff
+
+
+#Astat(k,ListOfTiles,n): Given a List of rectangular Tiles
+#ListOfTiles
+#returns: (1) The lists of for the
+#asymptotics (in n) for pairs [average,variance] for a random
+#tiling by the rectangular tiles
+#of Tiles (in order), 
+#followed by the av. and variance for the
+#Total number of tiles, followed by the asympto. correlation
+#matrix for example try:
+#Astat(4,[Rt(1,2),Rt(2,1)],n):
+Astat:=proc(k,Tiles,n) local t,H,F,VarList,i,j,s,Fs,mu,gu:
+
+VarList:=[seq(H[Tiles[i]],i=1..nops(Tiles))]:
+
+F:=GFtH(k,Tiles,t,H):
+
+
+Fs:=subs({seq(H[Tiles[i]]=s,i=1..nops(Tiles))},F):
+
+
+mu:=aCorMatrix(F,t,VarList):
+
+
+for i from 1 to nops(mu) do
+ for j from 1 to nops(mu[i]) do
+ if mu[i][j]=FAIL then
+   RETURN(FAIL):
+ fi:
+ od:
+od:
+
+
+gu:=[[seq([Aaverage(F,t,VarList,i,n) ,Amoment(F,t,VarList,i,2,n)],i=1..nops(VarList))],
+[Aaverage(Fs,t,[s],1,n) ,Amoment(Fs,t,[s],1,2,n) ],mu]:
+
+
+if member(FAIL, {seq(gu[1][i][1],i=1..nops(VarList)),seq(gu[1][i][2],i=1..nops(VarList))}) then
+ RETURN(FAIL):
+fi:
+
+if member(FAIL, convert(gu[2],set)) then
+ RETURN(FAIL):
+fi:
+
+gu:
+end:
+
+#The list of asymptotic averages of the number of tiles
+#of tiling a k by n rectangular board by the  tiles in
+#the list of rectangular tiles Tiles ([a,b] means a b by a rectangle)
+#For example, try: AaveT(2,[[1,2],[2,1]]) 
+#followed by the total number of tiles
+AaveT:=proc(k,Tiles) local t,H,F,VarList,i,s,Fs,n,gu:
+
+VarList:=[seq(H[Tiles[i]],i=1..nops(Tiles))]:
+
+F:=GFtH(k,Tiles,t,H):
+
+Fs:=subs({seq(H[Tiles[i]]=s,i=1..nops(Tiles))},F):
+
+gu:=[seq(coeff(Aaverage(F,t,VarList,i,n),n,1) ,i=1..nops(VarList)), coeff(Aaverage(Fs,t,[s],1,n),n,1) ]:
+
+if abs(convert([op(1..nops(gu)-1,gu)],`+`)-gu[nops(gu)])>10^(-10) then
+ print(`Couldn't compute averages`):
+ RETURN(FAIL,gu):
+fi:
+
+gu:
+
+end:
+
+
+#AstatV(k,ListOfTiles,n): verbose version of Astat
+#For example try:
+#AstatV(4,[Rt(1,2),Rt(2,1)],n):
+AstatV:=proc(k,Tiles,n) local gu,i:
+
+gu:=Astat(k,Tiles,n):
+
+
+print(`Consider a random tiling of the rectangular board of dimension`, k, ` by n `):
+print(k, `  is the vertical dimension and n the horizontal one`):
+print(`Using the tiles in the list of tiles`):
+print(Tiles):
+print(`We are interested in the asymptotics as n goes to infinity`):
+print(`of the statistics for the number of tiles`):
+
+for i from 1 to nops(Tiles) do
+ print(`The asymptotic (in n)  average number of tiles of type`, Tiles[i] , `in such a random tiling is`):
+ print(evalf(coeff(gu[1][i][1],n,1 ),10)*n, `[variance=`, evalf(coeff(gu[1][i][2],n,1),10)*n, `]` ):
+# print(`and the variance is`, evalf(coeff(gu[1][i][2],n,1),10)*n):
+od:
+
+print(`The average total number of tiles is`):
+print(evalf(coeff(gu[2][1],n,1),10)*n, `[variance=`, evalf(coeff(gu[2][2],n,1),10)*n, `]` ):
+#print(`and the variance is`, evalf(coeff(gu[2][2],n,1),10)*n ):
+print(`Finally, the asymptotic correlation matrix, in the order of appearace of`, Tiles, ` is `):
+print(evalf(gu[3],10)):
+end:
+
+
+
+AstatVs:=proc(K,Tiles,n) local i:
+print(`This is info about statistics for radnom tilings of rectangular board`):
+print(`of width from 2 to`, K):
+
+for i from 2 to K do
+ AstatV(i,Tiles,n):
+od:
+end:
+
+
+
+#Sidra(k,Tiles,N): the first N+1 terms in the
+#enumerating sequence for the number of tilings using
+#of an n by k rectangle using tiles from the set
+Sidra:=proc(k,Tiles,N) local gu,t,i:
+gu:=GFt(k,Tiles,t):
+[seq(coeff(taylor(gu,t=0,N+1),t,i),i=0..N)]:
+end:
+
+#SidraW(k,H,Tiles,N): the first N+1 terms in the
+#weight-enumerating sequence for the number of tilings using
+#of an n by k rectangle using tiles from the set
+#For example, try: SidraW(2,H,{[1,2],[2,1]},20);
+SidraW:=proc(k,H,Tiles,N) local gu,t,i:
+gu:=GFtH(k,Tiles,t,H):
+[seq(expand(coeff(taylor(gu,t=0,N+1),t,i)),i=0..N)]:
+end:
+
+Sipur:=proc(Tiles,t,K,N,Di1) local k,lu,gu,vu,Di2:
+if Di1>100 then
+ print(`I only do precison with <=100 digits `):
+Di2:=100:
+else
+ Di2:=Di1:
+fi:
+
+print(`This is the story of the number of tilings of  rectangular`):
+print(`boards of width <=`,K, `using rectangular tiles of dimensions`):
+print(Tiles):
+vu:=[]:
+
+for k from 1 to K do
+ print(`The number of tilings using the tiles`):
+ print(Tiles):
+ print(`of a `, k, ` by n rectangular board is the coeff. of t^n in the rational function`):
+ gu:=GFt(k,Tiles,t):
+ lprint(gu):
+ print(`The first `, N+1, `terms are `):
+ print(Sidra(k,Tiles,N)):
+ lu:=Growth1(gu,t):
+ print(`The asymptotic rate of growth is`,evalf(lu,Di2)):
+ print(`and adjusted (i.e. the `, k, ` -th root) it is`, evalf(lu^(1/k),Di2)):
+ vu:=[op(vu),lu^(1/k)]:
+ print(``):
+ print(``):
+od:
+ print(`To summarize, the sequence of adjusted growth-rates `):
+ print(`For tilings with the set of tiles`, Tiles , ` is `):
+ print(evalf(vu,Di2)):
+vu:
+end:
+
+
+SipurArokh:=proc(Tiles,t,N,Di1,K1,K2,K3) local k,lu,gu,vu,Di2,n:
+if Di1>100 then
+ print(`I only do precison with <=100 digits `):
+Di2:=100:
+else
+ Di2:=Di1:
+fi:
+
+print(`This is the long story of the number of tilings of  rectangular`):
+print(`boards of width bewteen`,K1, `and  `, K2, ` by inrcements of`, K3):
+print( `using tiles from the following list:`):
+print(Tiles):
+vu:=[]:
+print(`-------------------------------------------------------`):
+for k from K1 to K2 by K3 do
+ print(`The number of tilings using the tiles`):
+ print(Tiles):
+ print(`of a `, k, ` by n rectangular board is the coeff. of t^n in the Maclaurin series of the the rational function`):
+ gu:=GFt(k,Tiles,t):
+ lprint(gu):
+ print(`The first `, N+1, `terms are `):
+ print(Sidra(k,Tiles,N)):
+ lu:=Growth1(gu,t):
+ print(`The asymptotic rate of growth is`,evalf(lu,Di2)):
+ print(`and adjusted (i.e. the `, k, ` -th root)  is`, evalf(lu^(1/k),Di2)):
+ vu:=[op(vu),lu^(1/k)]:
+ print(``):
+print(`The asymptotics for the number of tilings as n goes to infinity is`):
+ print(coeff(evalf(Asy(gu,t,n) ,Di1),I,0)):
+print(``):
+
+ if Astat(k,Tiles,n)<>FAIL then
+print(` We now pause for asymptotics statistics for tilings of the set of the tiles in`):
+print(Tiles):
+print(`For rectangles of width`, k):
+print(`------------------------------------------------------------`):
+ AstatV(k,Tiles,n):
+print(`------------------------------------------------------------`):
+print(` this ends the  asymptotics statistics`):
+print(` for tilings of the set of the tiles in`):
+print(Tiles):
+print(`For rectangles of width`, k):
+ print(``):
+print(`----------------------------------------------`):
+fi:
+od:
+ print(`To summarize, the sequence of adjusted growth-rates `):
+ print(`for tilings with the set of tiles`, Tiles , ` is `):
+ print(evalf(vu,Di2)):
+vu:
+end:
+
+
+
+#Growth1(f,t): the growth of the coeff. of the rational function f
+#try for example: Growth1(1/(1-t-t^2),t);
+Growth1:=proc(f,t) local i,aluf,ku,shi,P:
+if normal(subs(t=-t,f)/f)=1 then
+ RETURN(FAIL):
+fi:
+P:=denom(normal(f)):
+if degree(P,t)=0 then
+ RETURN(FAIL):
+fi:
+ku:={fsolve(P,t)}:
+aluf:=ku[1]:
+shi:=abs(aluf):
+
+for i from 2 to nops(ku) do
+ if abs(ku[i])<shi then
+    aluf:=ku[i]:
+    shi:=abs(ku[i]):
+ fi:
+od:
+1/shi:
+end:
+
+
+
+#Kmn(m,n,z): The Kasteleyn polynomial for tiling
+#an m by n board by domino tiles computed
+#according to Kasteleyn's fromula as it appears in
+#his paper "The statistics of Dimers on a Lattice I...."
+#Physica 27 (1961) Eq. (13) p. 1215
+#Using Floating point
+#For example, try: Kmn(3,4,z);
+Kmn:=proc(m,n,z) local gu,K,L,i:
+Digits:=100:
+gu:=1:
+
+
+if n mod 2=1 then
+ RETURN(FAIL):
+fi:
+
+gu:=2^(n*trunc(m/2)):
+
+
+ for K from 1 to m/2 do
+ for L from 1 to n/2 do
+   gu:=gu*(z*cos(K*Pi/(m+1))^2+cos(L*Pi/(n+1))^2):
+ od:
+ od:
+
+gu:=add(round(evalf(coeff(gu,z,i)))*z^i,i=0..degree(gu,z)):
+
+RETURN(gu):
+
+end:
+
+#Kmn1(m,n): The Kasteleyn polynomial for tiling (with z=1)
+#an m by n board by domino tiles computed
+#according to Kasteleyn's fromula as it appears in
+#his paper "The statistics of Dimers on a Lattice I...."
+#Physica 27 (1961) Eq. (13) p. 1215
+#Using Floating point
+#For example, try: Kmn1(3,4);
+Kmn1:=proc(m,n) local gu,K,L,i:
+Digits:=100:
+gu:=1:
+
+
+if n mod 2=1 then
+ RETURN(FAIL):
+fi:
+
+gu:=2^(n*trunc(m/2)):
+
+
+ for K from 1 to m/2 do
+ for L from 1 to n/2 do
+   gu:=gu*(cos(K*Pi/(m+1))^2+cos(L*Pi/(n+1))^2):
+ od:
+ od:
+
+gu:=round(gu):
+
+RETURN(gu):
+
+end:
+
+
+#ProveKasteleyn(m): Given an even integer m,
+#proves Kasteleyn's celebrated formula RIGOROUSLY for any specific even m
+#but ALL n. For m>=10 it may take a very long time.
+#For example, try: ProveKasteleyn(4);
+ProveKasteleyn:=proc(m) local z,H,i:
+if m mod 2 =1 then
+ print(`Input must be an even integer`):
+ RETURN(FAIL):
+fi:
+evalb([seq(Kmn(i,m,z),i=0..2^(m/2+1)+1 )]=
+subs({H[Rt(1,2)]=sqrt(z),H[Rt(2,1)]=1},SidraW(m,H,[Rt(1,2),Rt(2,1)],2^(m/2+1)+1)));
+end:
+                                                            
+
+#ProveKasteleyn1(m): Given an even integer m,
+#proves Kasteleyn's celebrated formula (with z=1) RIGOROUSLY for any specific even m
+#but ALL n. For m>=10 it may take a very long time.
+#For example, try: ProveKasteleyn(4);
+ProveKasteleyn1:=proc(m) local i:
+if m mod 2 =1 then
+ print(`Input must be an even integer`):
+ RETURN(FAIL):
+fi:
+evalb([seq(Kmn1(i,m),i=0..2^(m/2+1)+1 )]=
+Sidra(m,[Rt(1,2),Rt(2,1)],2^(m/2+1)+1));
+end:
+                                                            
+
+
+
+
+
+#Dimer(n,z): the C-finite representation of the generating function for the dimer problem
+#in an n by m strip (m general, n specific) with vertical variable z and horiz. variable 1, try:
+#Dimer(4,z);
+Dimer:=proc(n,z) local lu,H,t,i:
+lu := subs({H[{[0, 0], [0, 1]}] = z, H[{[0, 0], [1, 0]}] = 1}, GFtH(n, [Rt(1, 2), Rt(2, 1)], t, H)):
+lu:=denom(lu):
+lu:=lu/coeff(lu,t,0):
+[seq(-coeff(lu,t,i),i=1..degree(lu,t))]:
+end:
+
+
+
+
+
