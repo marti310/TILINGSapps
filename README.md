@@ -77,6 +77,16 @@ For a list of the supporting procedures type Help1(), for help with
     -(t^4 - 1)/(t^8 + t^6 - 3*t^4 - t^2 + 1)
     ```
 
+* If you want to see a short article containing theorems that, for all rotations of the L-polyomino
+  with <=r cells (4<=r<=9) and every rectangular board of width k (1<=k<=9), provide:
+    * The generating function for tilings of a k by n rectangle by all four rotations of the L-tetromino.
+    * The asymptotics for these sequences.
+    * The first 30 terms of the corresponding counting sequences.
+  
+  Then, see
+    * Input file: ``PaperLpolyomino_Input.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/PaperLpolyomino_Input.txt)
+    * Output file: ``PaperLpolyomino.txt`` [Click here.](https://github.com/marti310/TILINGSapps/blob/main/PaperLpolyomino.txt)
+
 * If you want to see a short article containing theorems that, for every free polyomino with r cells (1 <= r <= 4)
   and every rectangular board of width k (1 <= k <= 4), provide:
     * The generating function for tilings of a k by n rectangle by rotations of the polyomino.
@@ -84,8 +94,8 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper1_Input.txt)
-    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper1.txt)
+    * Input file: ``Paper1_Input.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper1_Input.txt)
+    * Output file: ``Paper1.txt`` [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper1.txt)
  
 * If you want to see a short article containing theorems that, for every free polyomino with r cells (1 <= r <= 4)
   and every rectangular board of width k (1 <= k <= 4), provide:
@@ -94,8 +104,8 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper2_Input.txt)
-    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper2.txt)
+    * Input file: ``Paper2_Input.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper2_Input.txt)
+    * Output file: ``Paper2.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper2.txt)
  
 * If you want to see a short article containing theorems that, for all fixed polyominoes with r cells (1 <= r <= 4)
   and every rectangular board of width k (1 <= k <= 4), provide:
@@ -104,8 +114,8 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper3_Input.txt)
-    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper3.txt)
+    * Input file: ``Paper3_Input.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper3_Input.txt)
+    * Output file: ``Paper3.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper3.txt)
  
 * If you want to see a short article containing theorems that, for for all fixed polyominoes with r cells (1 <= r <= 4)
   and every rectangular board of width k (1 <= k <= 4), provide:
@@ -114,6 +124,6 @@ For a list of the supporting procedures type Help1(), for help with
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
-    * Input file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper4_Input.txt)
-    * Output file: [Click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper4.txt)
+    * Input file: ``Paper4_Input.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper4_Input.txt)
+    * Output file: ``Paper4.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/Paper4.txt)
 
