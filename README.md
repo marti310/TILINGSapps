@@ -2,7 +2,8 @@
 * Based on [this paper](https://arxiv.org/abs/) by [Lucy Martinez](https://marti310.github.io/ "Lucy")
 
 ## Usage    
-* Example using TILINGSapps.txt. Save this file as  TILINGSapps.txt to use it and stay in the same directory. Get into Mape and type:
+Example using TILINGSapps.txt.
+* Save both files: ``TILINGSapps.txt`` and ``TILINGSapps.txt`` in the same folder. Use ``TILINGSapps.txt`` and stay in the same directory. Get into Mape and type:
 
   ``` read `TILINGSapps.txt:` ```
 
