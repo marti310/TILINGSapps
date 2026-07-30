@@ -1,3 +1,0 @@
-read `TILINGSapps.txt`;
-
-PaperLpolyomino(9,9,t);
