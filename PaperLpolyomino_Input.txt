@@ -1,3 +1,0 @@
-read `TILINGSapps.txt`;
-
-PaperLtetromino(9,9,t);
