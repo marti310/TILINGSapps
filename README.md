@@ -79,13 +79,23 @@ For a list of the supporting procedures type Help1(), for help with
 
 * If you want to see a short article containing theorems that, for all rotations of the L-polyomino
   with <=r cells (4<=r<=9) and every rectangular board of width k (1<=k<=9), provide:
-    * The generating function for tilings of a k by n rectangle by all four rotations of the L-tetromino.
+    * The generating function for tilings of a k by n rectangle by all four rotations of the L-polyomino.
     * The asymptotics for these sequences.
     * The first 30 terms of the corresponding counting sequences.
   
   Then, see
     * Input file: ``PaperLpolyomino_Input.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/PaperLpolyomino_Input.txt)
     * Output file: ``PaperLpolyomino.txt`` [Click here.](https://github.com/marti310/TILINGSapps/blob/main/PaperLpolyomino.txt)
+
+* If you want to see a short article containing theorems that, for all rotations of the T-tetromino
+  and every rectangular board of width k (1<=k<=16 and k is a multiple of 4), provide:
+    * The generating function for tilings of a k by 4n rectangle by all four rotations of the T-tetromino.
+    * The asymptotics for these sequences.
+    * The first 30 terms of the corresponding counting sequences.
+  
+  Then, see
+    * Input file: ``PaperTtetromino_Input.txt`` [click here.](https://github.com/marti310/TILINGSapps/blob/main/PaperTtetromino_Input.txt)
+    * Output file: ``PaperTtetromino.txt`` [Click here.](https://github.com/marti310/TILINGSapps/blob/main/PaperTtetromino.txt)
 
 * If you want to see a short article containing theorems that, for every free polyomino with r cells (1 <= r <= 4)
   and every rectangular board of width k (1 <= k <= 4), provide:
